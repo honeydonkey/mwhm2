@@ -27,14 +27,48 @@
         }
     </script>
     <style>
-        body {
-            background-color: #070710;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 229, 255, 0.08), transparent 30%),
-                radial-gradient(circle at 90% 80%, rgba(255, 0, 127, 0.08), transparent 30%);
-            color: #e0e0e0;
-            font-family: 'Inter', sans-serif;
-        }
+        :root{
+  --bg:#050816;
+  --surface:rgba(255,255,255,0.045);
+  --surface-2:rgba(255,255,255,0.06);
+
+  --border:rgba(255,255,255,0.08);
+
+  --cyan:#00e5ff;
+  --pink:#ff4fd8;
+  --purple:#7a5cff;
+
+  --text:#f5f7ff;
+  --muted:#9aa4bf;
+
+  --glow-cyan:0 0 25px rgba(0,229,255,.35);
+  --glow-pink:0 0 25px rgba(255,79,216,.25);
+}
+
+body{
+  background:
+    radial-gradient(circle at top left,
+      rgba(0,229,255,.12),
+      transparent 25%),
+
+    radial-gradient(circle at bottom right,
+      rgba(255,79,216,.10),
+      transparent 25%),
+
+    linear-gradient(
+      135deg,
+      #050816 0%,
+      #070b1a 40%,
+      #090d1f 100%
+    );
+
+  color:var(--text);
+
+  min-height:100vh;
+
+  overflow-x:hidden;
+}
+        
 
         h1, h2, h3, .font-display {
             font-family: 'Orbitron', sans-serif;
