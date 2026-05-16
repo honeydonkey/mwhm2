@@ -27,6 +27,36 @@
         }
     </script>
     <style>
+        @keyframes floaty{
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-8px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+}
+
+.hero-orb{
+  width:320px;
+  height:320px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(circle,
+      rgba(0,229,255,.7),
+      rgba(0,229,255,.08),
+      transparent 70%);
+
+  filter:blur(8px);
+
+  animation:floaty 6s ease-in-out infinite;
+}
         :root{
   --bg:#050816;
   --surface:rgba(255,255,255,0.045);
