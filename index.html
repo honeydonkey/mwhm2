@@ -112,18 +112,39 @@ body{
 
   overflow:hidden;
 }
+        .card::before{
+  content:"";
 
-        .card-blue:hover {
-            border-color: #00e5ff;
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2), inset 0 0 10px rgba(0, 229, 255, 0.05);
-            transform: translateY(-2px);
-        }
+  position:absolute;
+  inset:0;
 
-        .card-pink:hover {
-            border-color: #ff007f;
-            box-shadow: 0 0 15px rgba(255, 0, 127, 0.2), inset 0 0 10px rgba(255, 0, 127, 0.05);
-            transform: translateY(-2px);
-        }
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.08),
+      transparent 40%
+    );
+
+  opacity:0;
+
+  transition:opacity .4s ease;
+
+  pointer-events:none;
+}
+
+.card:hover::before{
+  opacity:1;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+
+  border-color:rgba(0,229,255,.28);
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,.45),
+    0 0 30px rgba(0,229,255,.12);
+}
 
         .cyber-bullet {
             width: 6px;
