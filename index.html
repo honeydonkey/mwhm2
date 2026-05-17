@@ -92,30 +92,74 @@
           0 25px 70px rgba(255, 70, 160, 0.24);
       }
 
+      /* =========================================
+   DARK MODE — HIGH CONTRAST BUTTONS
+========================================= */
       body.dark .glass-button {
         background:
           linear-gradient(145deg,
-            rgba(28, 22, 40, 0.88),
-            rgba(20, 16, 30, 0.82));
+            rgba(52, 58, 72, 0.96),
+            rgba(28, 32, 42, 0.94)) !important;
         border:
-          1px solid rgba(255, 255, 255, 0.08);
-        color: #fff4fb;
-        box-shadow:
-          0 10px 30px rgba(0, 0, 0, 0.30),
-          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+          1px solid rgba(255, 255, 255, 0.16) !important;
+        color: #ffffff !important;
         backdrop-filter:
           blur(28px) saturate(180%);
+        -webkit-backdrop-filter:
+          blur(28px) saturate(180%);
+        box-shadow:
+          0 14px 34px rgba(0, 0, 0, 0.42),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
       }
 
+      /* BUTTON TEXT */
+      body.dark .glass-button,
+      body.dark .glass-button span,
+      body.dark .glass-button a {
+        color: #ffffff !important;
+      }
+
+      /* ICONS */
+      body.dark .glass-button i {
+        color: #ff63b8 !important;
+      }
+
+      /* HOVER */
       body.dark .glass-button:hover {
         background:
           linear-gradient(145deg,
-            rgba(38, 30, 52, 0.94),
-            rgba(26, 20, 38, 0.90));
+            rgba(72, 78, 94, 0.98),
+            rgba(38, 42, 52, 0.96)) !important;
         border-color:
-          rgba(255, 99, 184, 0.28);
+          rgba(255, 99, 184, 0.34) !important;
+        color: #ffffff !important;
+        transform:
+          translateY(-2px);
         box-shadow:
-          0 20px 50px 0 8px 30px rgba(0, 0, 0, 0.45);
+          0 20px 44px rgba(0, 0, 0, 0.52),
+          0 0 24px rgba(255, 99, 184, 0.10);
+      }
+
+      /* LINKS */
+      body.dark a {
+        color: #f8fafc !important;
+      }
+
+      body.dark a:hover {
+        color: #ff8ac7 !important;
+      }
+
+      /* MOBILE NAV TEXT — DARK MODE */
+      body.dark .mobile-nav-item {
+        color: rgba(255, 255, 255, 0.84);
+      }
+
+      body.dark .mobile-nav-item.active {
+        background:
+          linear-gradient(145deg,
+            rgba(255, 255, 255, 0.14),
+            rgba(255, 255, 255, 0.08));
+        color: #ff63b8;
       }
 
       body.dark .chip {
@@ -533,37 +577,6 @@
         pointer-events: none;
       }
 
-      /* BUTTONS */
-      body.dark .glass-button {
-        background:
-          linear-gradient(180deg,
-            rgba(40, 40, 46, 0.78),
-            rgba(24, 24, 28, 0.74));
-        border:
-          1px solid rgba(255, 255, 255, 0.08);
-        color: #fff7fb;
-        backdrop-filter:
-          blur(24px) saturate(180%);
-        box-shadow:
-          0 10px 30px rgba(0, 0, 0, 0.36),
-          inset 0 1px 0 rgba(255, 255, 255, 0.06);
-      }
-
-      /* BUTTON HOVER */
-      body.dark .glass-button:hover {
-        transform:
-          translateY(-2px) scale(1.01);
-        background:
-          linear-gradient(180deg,
-            rgba(52, 52, 58, 0.88),
-            rgba(28, 28, 34, 0.84));
-        border-color:
-          rgba(255, 255, 255, 0.12);
-        box-shadow:
-          0 18px 50px rgba(0, 0, 0, 0.42),
-          0 0 30px rgba(255, 105, 180, 0.08);
-      }
-
       /* ICONS */
       body.dark .icon-wrap,
       body.dark .summary-icon {
@@ -698,7 +711,6 @@
         line-height: 0.96;
         letter-spacing: -0.055em;
       }
-      }
 
       .gradient-text {
         background:
@@ -727,57 +739,44 @@
       /* =========================================
    STATUS PILL
 ========================================= */
+      .chip {
+        border-radius: 9999px;
+        padding:
+          0.42rem 1rem;
+        font-size: 0.72rem;
+        font-weight: 900;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        transition:
+          background 0.35s ease,
+          color 0.35s ease,
+          border-color 0.35s ease,
+          box-shadow 0.35s ease;
+      }
 
-.chip {
-  border-radius: 9999px;
+      /* LIGHT MODE */
+      body:not(.dark) .chip {
+        background:
+          linear-gradient(145deg,
+            #64748b,
+            #475569);
+        color: white;
+        border:
+          1px solid rgba(255, 255, 255, 0.65);
+        box-shadow:
+          0 6px 18px rgba(71, 85, 105, 0.16),
+          inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      }
 
-  padding:
-    0.42rem 1rem;
-
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.24em;
-
-  text-transform: uppercase;
-
-  transition:
-    background 0.35s ease,
-    color 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
-}
-
-/* LIGHT MODE */
-body:not(.dark) .chip {
-  background:
-    linear-gradient(
-      145deg,
-      #64748b,
-      #475569
-    );
-
-  color: white;
-
-  border:
-    1px solid rgba(255,255,255,0.65);
-
-  box-shadow:
-    0 6px 18px rgba(71,85,105,0.16),
-    inset 0 1px 0 rgba(255,255,255,0.18);
-}
-
-/* DARK MODE */
-body.dark .chip {
-  background: #ffffff;
-
-  color: #ec4899;
-
-  border:
-    1px solid rgba(255,255,255,0.92);
-
-  box-shadow:
-    0 4px 14px rgba(0,0,0,0.18);
-}
+      /* DARK MODE */
+      body.dark .chip {
+        background: #ffffff;
+        color: #ec4899;
+        border:
+          1px solid rgba(255, 255, 255, 0.92);
+        box-shadow:
+          0 4px 14px rgba(0, 0, 0, 0.18);
+      }
 
       .fade-up {
         animation: fadeUp 1s cubic-bezier(.22, 1, .36, 1) forwards;
@@ -998,20 +997,21 @@ body.dark .chip {
           box-shadow 0.45s cubic-bezier(.22, 1, .36, 1),
           background 0.45s cubic-bezier(.22, 1, .36, 1);
       }
+
       /* DARK MODE NAV TEXT */
-body.dark .nav-item {
-  color: rgba(255, 255, 255, 0.82);
-}
+      body.dark .nav-item {
+        color: rgba(255, 255, 255, 0.82);
+      }
 
-/* DARK MODE HOVER */
-body.dark .nav-item:hover:not(.active) {
-  color: #ffffff;
-}
+      /* DARK MODE HOVER */
+      body.dark .nav-item:hover:not(.active) {
+        color: #ffffff;
+      }
 
-/* DARK MODE ACTIVE */
-body.dark .nav-item.active {
-  color: #ec4899;
-}
+      /* DARK MODE ACTIVE */
+      body.dark .nav-item.active {
+        color: #ec4899;
+      }
 
       /* LIQUID LAYER */
       .nav-item::before {
@@ -1183,7 +1183,7 @@ body.dark .nav-item.active {
     <!-- MAIN -->
     <main class="relative z-10 pt-44 md:pt-48">
       <!-- HERO -->
-      <section id="home" class="min-h-screen flex justify-center">
+      <section id="home" class="flex justify-center pt-10">
         <div class="container-main">
           <div class="fade-up">
             <p class="eyebrow text-sm font-black uppercase text-pink-500 mb-8"> Cybersecurity Risk Analyst </p>
@@ -1234,127 +1234,128 @@ body.dark .nav-item.active {
                 </p>
               </div>
             </div>
-            <!-- EXPERIENCE -->
-            <section id="experience" class="section-spacing">
-              <div class="container-main">
-                <div class="flex items-center gap-5 mb-12">
-                  <div class="icon-wrap">
-                    <i data-lucide="briefcase" class="w-5 h-5 text-fuchsia-500"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm uppercase tracking-[0.25em] text-pink-500 font-black mb-2"> Career </p>
-                    <h2 class="text-3xl font-black section-title"> EXPERIENCE </h2>
-                  </div>
-                </div>
-                <div id="experienceList" class="space-y-7"></div>
+      </section>
+      <!-- EXPERIENCE -->
+      <section id="experience" class="section-spacing">
+        <div class="container-main">
+          <div class="flex items-center gap-5 mb-12">
+            <div class="icon-wrap">
+              <i data-lucide="briefcase" class="w-5 h-5 text-fuchsia-500"></i>
+            </div>
+            <div>
+              <p class="text-sm uppercase tracking-[0.25em] text-pink-500 font-black mb-2"> Career </p>
+              <h2 class="text-3xl font-black section-title"> EXPERIENCE </h2>
+            </div>
+          </div>
+          <div id="experienceList" class="space-y-7"></div>
+        </div>
+      </section>
+      <!-- SKILLS -->
+      <section id="skills" class="section-spacing">
+        <div class="container-main">
+          <div class="flex items-center gap-5 mb-12">
+            <div class="icon-wrap">
+              <i data-lucide="zap" class="w-5 h-5 text-pink-500"></i>
+            </div>
+            <div>
+              <p class="text-sm uppercase tracking-[0.25em] text-pink-500 font-black mb-2"> Expertise </p>
+              <h2 class="text-3xl font-black section-title"> SKILLS </h2>
+            </div>
+          </div>
+          <div id="skillsList" class="flex flex-wrap gap-4"></div>
+        </div>
+      </section>
+      <!-- EDUCATION -->
+      <section id="education" class="section-spacing">
+        <div class="container-main">
+          <div class="flex items-center gap-5 mb-12">
+            <div class="icon-wrap">
+              <i data-lucide="graduation-cap" class="w-5 h-5 text-fuchsia-500"></i>
+            </div>
+            <div>
+              <p class="text-sm uppercase tracking-[0.25em] text-pink-500 font-black mb-2"> Academic </p>
+              <h2 class="text-3xl font-black section-title"> EDUCATION </h2>
+            </div>
+          </div>
+          <div class="glass glass-hover p-7 sm:p-9">
+            <div class="flex flex-col md:flex-row md:items-start gap-7">
+              <div class="icon-wrap shrink-0">
+                <i data-lucide="book-open" class="w-6 h-6 text-pink-500"></i>
               </div>
-            </section>
-            <!-- SKILLS -->
-            <section id="skills" class="section-spacing">
-              <div class="container-main">
-                <div class="flex items-center gap-5 mb-12">
-                  <div class="icon-wrap">
-                    <i data-lucide="zap" class="w-5 h-5 text-pink-500"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm uppercase tracking-[0.25em] text-pink-500 font-black mb-2"> Expertise </p>
-                    <h2 class="text-3xl font-black section-title"> SKILLS </h2>
-                  </div>
-                </div>
-                <div id="skillsList" class="flex flex-wrap gap-4"></div>
+              <div>
+                <h3 class="text-3xl font-black leading-tight"> Bachelor of Science (Honours) in Cybersecurity </h3>
+                <p class="mt-5 text-lg font-bold text-pink-500"> Asia Pacific Institute of Technology (APIIT) </p>
+                <div class="divider my-6"></div>
+                <p class="text-muted text-lg"> May 2019 – Apr 2022 · First Class Honours · CGPA 3.7 </p>
               </div>
-            </section>
-            <!-- EDUCATION -->
-            <section id="education" class="section-spacing">
-              <div class="container-main">
-                <div class="flex items-center gap-5 mb-12">
-                  <div class="icon-wrap">
-                    <i data-lucide="graduation-cap" class="w-5 h-5 text-fuchsia-500"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm uppercase tracking-[0.25em] text-pink-500 font-black mb-2"> Academic </p>
-                    <h2 class="text-3xl font-black section-title"> EDUCATION </h2>
-                  </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CERTIFICATIONS -->
+      <section id="certifications" class="section-spacing">
+        <div class="container-main">
+          <div class="flex items-center gap-5 mb-12">
+            <div class="icon-wrap">
+              <i data-lucide="badge-check" class="w-5 h-5 text-pink-500"></i>
+            </div>
+            <div>
+              <p class="text-sm uppercase tracking-[0.25em] text-pink-500 font-black mb-2"> Credentials </p>
+              <h2 class="text-3xl font-black section-title"> CERTIFICATIONS </h2>
+            </div>
+          </div>
+          <div class="glass glass-hover p-7 sm:p-9">
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
+              <div class="flex items-start gap-7">
+                <div class="icon-wrap shrink-0">
+                  <i data-lucide="shield-check" class="w-6 h-6 text-fuchsia-500"></i>
                 </div>
-                <div class="glass glass-hover p-7 sm:p-9">
-                  <div class="flex flex-col md:flex-row md:items-start gap-7">
-                    <div class="icon-wrap shrink-0">
-                      <i data-lucide="book-open" class="w-6 h-6 text-pink-500"></i>
-                    </div>
-                    <div>
-                      <h3 class="text-3xl font-black leading-tight"> Bachelor of Science (Honours) in Cybersecurity </h3>
-                      <p class="mt-5 text-lg font-bold text-pink-500"> Asia Pacific Institute of Technology (APIIT) </p>
-                      <div class="divider my-6"></div>
-                      <p class="text-muted text-lg"> May 2019 – Apr 2022 · First Class Honours · CGPA 3.7 </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <!-- CERTIFICATIONS -->
-            <section id="certifications" class="section-spacing">
-              <div class="container-main">
-                <div class="flex items-center gap-5 mb-12">
-                  <div class="icon-wrap">
-                    <i data-lucide="badge-check" class="w-5 h-5 text-pink-500"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm uppercase tracking-[0.25em] text-pink-500 font-black mb-2"> Credentials </p>
-                    <h2 class="text-3xl font-black section-title"> CERTIFICATIONS </h2>
-                  </div>
-                </div>
-                <div class="glass glass-hover p-7 sm:p-9">
-                  <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
-                    <div class="flex items-start gap-7">
-                      <div class="icon-wrap shrink-0">
-                        <i data-lucide="shield-check" class="w-6 h-6 text-fuchsia-500"></i>
-                      </div>
-                      <div>
-                        <h3 class="text-3xl font-black"> CompTIA Security+ </h3>
-                        <p class="mt-4 text-lg font-semibold text-pink-500"> CompTIA </p>
-                        <p class="mt-4 text-muted text-lg"> Issued Feb 2026 · Expires Feb 2029 </p>
-                        <div class="divider my-6"></div>
-                        <p class="text-lg leading-relaxed text-secondary max-w-3xl"> Validates baseline cybersecurity skills including threat management, cryptography, identity management, network security, and risk mitigation. </p>
-                      </div>
-                    </div>
-                    <a href="https://www.credly.com/badges/c6a9aee8-dd04-4905-b3b9-e39ab2134414/public_url" target="_blank" rel="noreferrer" class="glass-button px-6 py-3 h-fit text-sm font-black text-primary flex items-center gap-3">
-                      <i data-lucide="external-link" class="w-5 h-5 text-pink-500"></i> Verify Certification </a>
-                  </div>
+                <div>
+                  <h3 class="text-3xl font-black"> CompTIA Security+ </h3>
+                  <p class="mt-4 text-lg font-semibold text-pink-500"> CompTIA </p>
+                  <p class="mt-4 text-muted text-lg"> Issued Feb 2026 · Expires Feb 2029 </p>
+                  <div class="divider my-6"></div>
+                  <p class="text-lg leading-relaxed text-secondary max-w-3xl"> Validates baseline cybersecurity skills including threat management, cryptography, identity management, network security, and risk mitigation. </p>
                 </div>
               </div>
-            </section>
-            <!-- ACHIEVEMENTS -->
-            <section id="achievements" class="section-spacing">
-              <div class="container-main">
-                <div class="flex items-center gap-5 mb-12">
-                  <div class="icon-wrap">
-                    <i data-lucide="trophy" class="w-5 h-5 text-fuchsia-500"></i>
-                  </div>
-                  <div>
-                    <p class="text-sm uppercase tracking-[0.25em] text-pink-500 font-black mb-2"> Recognition </p>
-                    <h2 class="text-3xl font-black section-title"> ACHIEVEMENTS </h2>
-                  </div>
-                </div>
-                <div id="achievementsGrid" class="grid lg:grid-cols-2 gap-8"></div>
-              </div>
-            </section>
-            <!-- CONTACT -->
-            <section id="contact" class="section-spacing">
-              <div class="container-main">
-                <div class="glass p-14 text-center">
-                  <p class="text-sm uppercase tracking-[0.35em] text-pink-500 font-black mb-6"> Let's Collaborate </p>
-                  <h2 class="text-5xl font-black mb-8"> Ready To Build <span class="gradient-text"> Secure Systems </span>
-                  </h2>
-                  <p class="max-w-3xl mx-auto text-xl leading-relaxed text-secondary mb-12"> Open to cybersecurity risk, GRC, vendor security, compliance operations, and security intelligence opportunities. </p>
-                  <div class="flex flex-wrap justify-center gap-5">
-                    <a href="mailto:marianne_wong@protonmail.com" class="glass-button px-6 py-3 text-sm font-black text-primary flex items-center gap-3">
-                      <i data-lucide="mail" class="w-5 h-5 text-pink-500"></i> Email me </a>
-                    <a href="https://www.linkedin.com/in/mwhm/" target="_blank" rel="noreferrer" class="glass-button px-6 py-3 text-sm font-black text-primary flex items-center gap-3">
-                      <i data-lucide="contact" class="w-5 h-5 text-fuchsia-500"></i> LinkedIn </a>
-                  </div>
-                </div>
-              </div>
-            </section>
+              <a href="https://www.credly.com/badges/c6a9aee8-dd04-4905-b3b9-e39ab2134414/public_url" target="_blank" rel="noreferrer" class="glass-button px-6 py-3 h-fit text-sm font-black text-primary flex items-center gap-3">
+                <i data-lucide="external-link" class="w-5 h-5 text-pink-500"></i> Verify Certification </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ACHIEVEMENTS -->
+      <section id="achievements" class="section-spacing">
+        <div class="container-main">
+          <div class="flex items-center gap-5 mb-12">
+            <div class="icon-wrap">
+              <i data-lucide="trophy" class="w-5 h-5 text-fuchsia-500"></i>
+            </div>
+            <div>
+              <p class="text-sm uppercase tracking-[0.25em] text-pink-500 font-black mb-2"> Recognition </p>
+              <h2 class="text-3xl font-black section-title"> ACHIEVEMENTS </h2>
+            </div>
+          </div>
+          <div id="achievementsGrid" class="grid lg:grid-cols-2 gap-8"></div>
+        </div>
+      </section>
+      <!-- CONTACT -->
+      <section id="contact" class="section-spacing">
+        <div class="container-main">
+          <div class="glass p-14 text-center">
+            <p class="text-sm uppercase tracking-[0.35em] text-pink-500 font-black mb-6"> Let's Collaborate </p>
+            <h2 class="text-5xl font-black mb-8"> Ready To Build <span class="gradient-text"> Secure Systems </span>
+            </h2>
+            <p class="max-w-3xl mx-auto text-xl leading-relaxed text-secondary mb-12"> Open to cybersecurity risk, GRC, vendor security, compliance operations, and security intelligence opportunities. </p>
+            <div class="flex flex-wrap justify-center gap-5">
+              <a href="mailto:marianne_wong@protonmail.com" class="glass-button px-6 py-3 text-sm font-black text-primary flex items-center gap-3">
+                <i data-lucide="mail" class="w-5 h-5 text-pink-500"></i> Email me </a>
+              <a href="https://www.linkedin.com/in/mwhm/" target="_blank" rel="noreferrer" class="glass-button px-6 py-3 text-sm font-black text-primary flex items-center gap-3">
+                <i data-lucide="contact" class="w-5 h-5 text-fuchsia-500"></i> LinkedIn </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <!-- FOOTER -->
     <footer class="relative z-10">
@@ -1381,8 +1382,10 @@ body.dark .nav-item.active {
         localStorage.setItem("theme", isDark ? "dark" : "light");
         /* update icon */
         themeToggle.innerHTML = isDark ? `
-										<i data-lucide="sun" class="w-5 h-5 text-yellow-300"></i>` : `
-										<i data-lucide="moon" class="w-5 h-5 text-pink-500"></i>`;
+										
+									<i data-lucide="sun" class="w-5 h-5 text-yellow-300"></i>` : `
+										
+									<i data-lucide="moon" class="w-5 h-5 text-pink-500"></i>`;
         lucide.createIcons();
       });
       const navItems = [{
@@ -1460,39 +1463,16 @@ body.dark .nav-item.active {
         link: 'https://drive.google.com/file/d/1FCblOIgXGqrGZmxy2dRg-rmIWYtM1dzQ/view'
       }];
       /* =========================================
-   NAVIGATION
+   ACTIVE SECTION TRACKING
 ========================================= */
-      let currentActive = 'home';
+      const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean);
       let manualScrolling = false;
-
-      function renderNav() {
-        const desktop = document.getElementById('desktopNav');
-        const mobile = document.getElementById('mobileNavItems');
-        desktop.innerHTML = navItems.map(item => `
-    
-										
-										<button
-      class="nav-btn nav-item"
-      data-target="${item.id}"
-    >
-											<span>${item.label}</span>
-										</button>
-  `).join('');
-        mobile.innerHTML = navItems.map(item => `
-    
-										
-										<button
-      class="nav-btn mobile-nav-item"
-      data-target="${item.id}"
-    >
-      ${item.label}
-    </button>
-  `).join('');
-        lucide.createIcons();
-      }
+      let manualScrollTimeout;
       /* =========================================
-         ACTIVE NAV
+         SET ACTIVE NAV
       ========================================= */
+      let currentActive = 'home';
+
       function setActiveNav(id) {
         currentActive = id;
         document.querySelectorAll('.nav-item').forEach(btn => {
@@ -1508,9 +1488,9 @@ body.dark .nav-item.active {
       function scrollToSection(id) {
         const section = document.getElementById(id);
         if (!section) return;
-        // immediately activate clicked nav
+        /* immediately activate nav */
         setActiveNav(id);
-        // pause observer updates
+        /* pause observer updates */
         manualScrolling = true;
         clearTimeout(manualScrollTimeout);
         const y = section.getBoundingClientRect().top + window.pageYOffset - 120;
@@ -1518,63 +1498,40 @@ body.dark .nav-item.active {
           top: y,
           behavior: 'smooth'
         });
-        // resume observer after smooth scroll finishes
+        /* re-enable observer */
         manualScrollTimeout = setTimeout(() => {
           manualScrolling = false;
         }, 900);
         document.getElementById('mobileNav').classList.add('hidden');
       }
       /* =========================================
-         ACTIVE SECTION TRACKING
+         INTERSECTION OBSERVER
       ========================================= */
-      const sections = navItems.map(item => document.getElementById(item.id)).filter(Boolean);
-      let visibleSections = new Map();
-      let manualScrollTimeout;
-      const observer = new IntersectionObserver(entries => {
-        if (manualScrolling) return;
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            visibleSections.set(entry.target.id, entry.intersectionRatio);
-          } else {
-            visibleSections.delete(entry.target.id);
-          }
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (manualScrolling) return;
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveNav(entry.target.id);
+            }
+          });
+        }, {
+          rootMargin: '-45% 0px -45% 0px',
+          threshold: 0
         });
-        let mostVisibleSection = currentActive;
-        let highestRatio = 0;
-        visibleSections.forEach((ratio, id) => {
-          if (ratio > highestRatio) {
-            highestRatio = ratio;
-            mostVisibleSection = id;
-          }
-        });
-        if (mostVisibleSection && mostVisibleSection !== currentActive) {
-          setActiveNav(mostVisibleSection);
-        }
-      }, {
-        threshold: [0.15, 0.3, 0.5, 0.7],
-        rootMargin: '-20% 0px -60% 0px'
-      });
-      sections.forEach(section => {
+      /* observe all sections */
+      sections.forEach((section) => {
         observer.observe(section);
       });
       /* =========================================
          GLOBAL CLICK EVENTS
       ========================================= */
       document.addEventListener('click', async (e) => {
-        /* NAVIGATION BUTTONS */
+        /* NAV BUTTONS */
         const navBtn = e.target.closest('.nav-btn');
         if (navBtn) {
           const target = navBtn.dataset.target;
-          /* LOCK OBSERVER TEMPORARILY */
-          manualScrolling = true;
-          /* IMMEDIATE ACTIVE FEEDBACK */
-          setActiveNav(target);
-          /* SMOOTH SCROLL */
           scrollToSection(target);
-          /* RELEASE OBSERVER */
-          setTimeout(() => {
-            manualScrolling = false;
-          }, 900);
           return;
         }
         /* SCROLL BUTTONS */
@@ -1594,11 +1551,13 @@ body.dark .nav-item.active {
           chevron.style.transform = isVisible ? 'rotate(0deg)' : 'rotate(90deg)';
           return;
         }
-        /* MOBILE MENU */
-        if (e.target.closest('#menuBtn')) {
+        /* =========================================
+           MOBILE MENU
+        ========================================= */
+        const menuBtn = document.getElementById('menuBtn');
+        menuBtn?.addEventListener('click', () => {
           document.getElementById('mobileNav').classList.toggle('hidden');
-          return;
-        }
+        });
         /* SHARE */
         if (e.target.closest('#shareBtn')) {
           try {
@@ -1621,7 +1580,8 @@ body.dark .nav-item.active {
         skillsList.innerHTML = skills.map(skill => `
     
 										
-										<div class="chip px-5 py-3 text-sm font-bold text-primary">
+										
+									<div class="chip px-5 py-3 text-sm font-bold text-primary">
       ${skill}
     </div>
   `).join('');
@@ -1634,22 +1594,23 @@ body.dark .nav-item.active {
 
     
 										
-										<div class="glass glass-hover overflow-hidden">
-											<!-- HEADER -->
-											<button
+										
+									<div class="glass glass-hover overflow-hidden">
+										<!-- HEADER -->
+										<button
         class="experience-toggle w-full text-left p-8 sm:p-10 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6"
         data-index="${index}"
       >
-												<div class="flex items-start gap-6">
-													<div class="icon-wrap shrink-0">
-														<i
+											<div class="flex items-start gap-6">
+												<div class="icon-wrap shrink-0">
+													<i
               data-lucide="briefcase"
               class="w-5 h-5 text-pink-500"
             ></i>
-													</div>
-													<div>
-														<div class="flex flex-wrap items-center gap-3 mb-3">
-															<h3 class="text-2xl sm:text-3xl font-black leading-tight">
+												</div>
+												<div>
+													<div class="flex flex-wrap items-center gap-3 mb-3">
+														<h3 class="text-2xl sm:text-3xl font-black leading-tight">
                 ${exp.title}
               </h3>
 
@@ -1658,7 +1619,8 @@ body.dark .nav-item.active {
                   ? `
                     
 															
-															<span
+															
+														<span
   class="chip"
 >
   ACTIVE
@@ -1669,52 +1631,55 @@ body.dark .nav-item.active {
 
             
 														
-														</div>
-														<p class="text-lg font-bold text-pink-500 mb-3">
+														
+													</div>
+													<p class="text-lg font-bold text-pink-500 mb-3">
               ${exp.company}
             </p>
-														<p class="text-muted text-base">
+													<p class="text-muted text-base">
               ${exp.period}
             </p>
-													</div>
 												</div>
-												<!-- CHEVRON -->
-												<div
+											</div>
+											<!-- CHEVRON -->
+											<div
           class="chevron shrink-0"
           data-chevron="${index}"
         >
-													<i
+												<i
             data-lucide="chevron-right"
             class="w-6 h-6 text-pink-500"
           ></i>
-												</div>
-											</button>
-											<!-- DETAILS -->
-											<div
+											</div>
+										</button>
+										<!-- DETAILS -->
+										<div
         class="experience-details px-8 sm:px-10 pb-8 sm:pb-10"
         data-details="${index}"
       >
-												<div class="divider mb-8"></div>
-												<ul class="space-y-4">
+											<div class="divider mb-8"></div>
+											<ul class="space-y-4">
 
           ${exp.details.map(detail => `
 
             
 													
-													<li class="flex items-start gap-4 text-secondary leading-relaxed">
-														<div
+													
+												<li class="flex items-start gap-4 text-secondary leading-relaxed">
+													<div
                 class="mt-2 w-2 h-2 rounded-full bg-pink-400 shrink-0"
               ></div>
-														<span>${detail}</span>
-													</li>
+													<span>${detail}</span>
+												</li>
 
           `).join('')}
 
         
 												
-												</ul>
-											</div>
+												
+											</ul>
 										</div>
+									</div>
 
   `).join('');
         lucide.createIcons();
@@ -1727,39 +1692,40 @@ body.dark .nav-item.active {
 
     
 										
-										<div class="glass glass-hover p-8 sm:p-10 flex flex-col h-full">
-											<!-- TOP -->
-											<div class="flex items-start gap-6 mb-6">
-												<div class="icon-wrap shrink-0">
-													<i
+										
+									<div class="glass glass-hover p-8 sm:p-10 flex flex-col h-full">
+										<!-- TOP -->
+										<div class="flex items-start gap-6 mb-6">
+											<div class="icon-wrap shrink-0">
+												<i
             data-lucide="${item.icon}"
             class="w-5 h-5 text-fuchsia-500"
           ></i>
-												</div>
-												<div>
-													<h3 class="text-2xl font-black leading-tight mb-3">
+											</div>
+											<div>
+												<h3 class="text-2xl font-black leading-tight mb-3">
             ${item.title}
           </h3>
-													<p class="text-pink-500 font-bold mb-2">
+												<p class="text-pink-500 font-bold mb-2">
             ${item.organization}
           </p>
-													<p class="text-sm uppercase tracking-[0.2em] text-muted font-black">
+												<p class="text-sm uppercase tracking-[0.2em] text-muted font-black">
             ${item.rank}
           </p>
-												</div>
 											</div>
-											<!-- DESCRIPTION -->
-											<p class="text-secondary leading-relaxed mb-8 flex-1">
+										</div>
+										<!-- DESCRIPTION -->
+										<p class="text-secondary leading-relaxed mb-8 flex-1">
         ${item.description}
       </p>
-											<!-- BUTTON -->
-											<a
+										<!-- BUTTON -->
+										<a
         href="${item.link}"
         target="_blank"
         rel="noreferrer"
         class="glass-button px-6 py-4 text-sm font-black text-primary flex items-center justify-center gap-3"
       >
-												<i
+											<i
           data-lucide="external-link"
           class="w-5 h-5 text-pink-500"
         ></i>
@@ -1768,11 +1734,40 @@ body.dark .nav-item.active {
 
       
 											
-											</a>
-										</div>
+											
+										</a>
+									</div>
 
   `).join('');
         lucide.createIcons();
+      }
+      /* =========================================
+   RENDER NAVIGATION
+========================================= */
+      function renderNav() {
+        const desktopNav = document.getElementById('desktopNav');
+        const mobileNavItems = document.getElementById('mobileNavItems');
+        if (!desktopNav || !mobileNavItems) return;
+        /* DESKTOP NAV */
+        desktopNav.innerHTML = navItems.map(item => `
+    
+									<button
+      class="nav-item nav-btn"
+      data-target="${item.id}"
+    >
+										<span>${item.label}</span>
+									</button>
+  `).join('');
+        /* MOBILE NAV */
+        mobileNavItems.innerHTML = navItems.map(item => `
+    
+									<button
+      class="mobile-nav-item nav-btn"
+      data-target="${item.id}"
+    >
+      ${item.label}
+    </button>
+  `).join('');
       }
       /* =========================================
          INITIALIZE
@@ -1784,7 +1779,6 @@ body.dark .nav-item.active {
         renderAchievements();
         setActiveNav('home');
         lucide.createIcons();
-        initObserver();
       });
     </script>
   </body>
