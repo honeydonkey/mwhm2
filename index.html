@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marianne Wong — Cyber Risk Analyst</title>
+  <meta name="description" content="Marianne Wong — Cyber Risk Analyst with 3+ years in GRC, TPRM, and security operations.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -82,12 +83,52 @@
       font-size: 11px; color: #86868b; margin-left: 6px;
     }
 
+    /* ATS button states */
+    .btn-ats {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 16px 32px; background: transparent; color: #ffffff;
+      font-size: 15px; font-weight: 500; border-radius: 980px;
+      border: 1px solid #424245; transition: all 0.25s ease; text-decoration: none;
+      box-sizing: border-box; cursor: pointer; position: relative; overflow: hidden;
+    }
+    .btn-ats:hover:not(:disabled) { background: #2d2d2f; border-color: #6e6e73; }
+    .btn-ats:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-ats .spinner {
+      width: 16px; height: 16px; border: 2px solid #6e6e73;
+      border-top-color: #fff; border-radius: 50%;
+      animation: spin 0.6s linear infinite; display: none;
+    }
+    .btn-ats.loading .spinner { display: block; }
+    .btn-ats.loading .btn-ats-icon { display: none; }
+    .btn-ats.ready { border-color: #30d158; color: #30d158; }
+    .btn-ats.ready:hover { background: rgba(48,209,88,0.1); border-color: #30d158; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Toast */
+    .toast {
+      position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px);
+      background: #1d1d1f; color: #fff; padding: 14px 24px; border-radius: 980px;
+      font-size: 14px; font-weight: 500; z-index: 9999;
+      display: flex; align-items: center; gap: 8px;
+      opacity: 0; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none; white-space: nowrap;
+      box-shadow: 0 8px 30px rgb(0 0 0 / 0.2);
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: #d2d2d7; border-radius: 3px; }
   </style>
 </head>
 <body>
+
+  <!-- Toast -->
+  <div id="toast" class="toast">
+    <i data-lucide="check-circle" class="w-4 h-4 text-[#30d158]"></i>
+    <span id="toast-msg"></span>
+  </div>
 
   <!-- Nav -->
   <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -354,7 +395,6 @@
           <div class="flex flex-wrap gap-2">
             <span class="tag">Google Gemini</span>
             <span class="tag">n8n</span>
-            <span class="tag">Basic AI Prompting</span>
           </div>
         </div>
         <div>
@@ -401,7 +441,6 @@
     <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
       <p class="section-label mb-12">CTF & Extracurricular</p>
       <div class="grid sm:grid-cols-2 gap-6">
-
         <a href="https://drive.google.com/file/d/1-GFO9SalKL8FN1ETDzBRgPDv2iGJ3lJv/view" target="_blank" rel="noopener noreferrer" class="card-link">
           <div class="card p-8">
             <div class="flex items-center justify-between mb-4">
@@ -475,7 +514,6 @@
             </div>
           </div>
         </a>
-
       </div>
     </div>
   </section>
@@ -520,7 +558,17 @@
             marianne_wong@protonmail.com
           </a>
         </div>
-        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[#6e6e73]">
+        <!-- ATS Resume Button -->
+        <div class="border-t border-[#424245] pt-10 mt-2">
+          <p class="text-[#6e6e73] text-sm mb-5">Need an ATS-friendly version?</p>
+          <button id="ats-btn" class="btn-ats" disabled>
+            <span class="spinner"></span>
+            <i data-lucide="file-text" class="w-4 h-4 btn-ats-icon"></i>
+            <span id="ats-btn-text">Preparing ATS Resume…</span>
+          </button>
+          <p id="ats-status" class="text-[#424245] text-xs mt-3 transition-all duration-300"></p>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[#6e6e73] mt-10">
           <a href="https://linkedin.com/in/mwhm" target="_blank" rel="noopener" class="hover:text-white transition-colors inline-flex items-center gap-1.5">
             <i data-lucide="linkedin" class="w-3.5 h-3.5"></i>
             linkedin.com/in/mwhm
@@ -557,6 +605,7 @@
   <script>
     lucide.createIcons();
 
+    // ── Nav scroll effect ──
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 20) {
@@ -572,6 +621,7 @@
       }
     });
 
+    // ── Mobile menu ──
     const menuBtn = document.getElementById('menu-btn');
     const menu = document.getElementById('menu');
     menuBtn.addEventListener('click', () => menu.classList.toggle('hidden'));
@@ -579,6 +629,7 @@
       l.addEventListener('click', () => menu.classList.add('hidden'))
     );
 
+    // ── Active nav tracking ──
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     window.addEventListener('scroll', () => {
@@ -590,6 +641,372 @@
         l.classList.toggle('active', l.getAttribute('href') === '#' + current);
       });
     });
+
+    // ── Toast ──
+    function showToast(msg, duration = 3000) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), duration);
+    }
+
+    // ── ATS Resume Builder & Viewer ──
+    function buildATSResume() {
+      return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Marianne Wong — ATS Resume</title>
+<style>
+  @page { margin: 0.75in; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 11pt;
+    line-height: 1.45;
+    color: #000;
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.75in 1in;
+  }
+  h1 { font-size: 16pt; font-weight: bold; margin-bottom: 2px; letter-spacing: 0.5px; }
+  .contact-line { font-size: 10pt; color: #333; margin-bottom: 14px; }
+  .contact-line a { color: #333; text-decoration: none; }
+  h2 {
+    font-size: 11pt; font-weight: bold; text-transform: uppercase;
+    letter-spacing: 1px; border-bottom: 1.5px solid #000;
+    padding-bottom: 3px; margin-top: 14px; margin-bottom: 8px;
+  }
+  .role-header { display: flex; justify-content: space-between; align-items: baseline; }
+  .role-title { font-weight: bold; font-size: 11pt; }
+  .role-date { font-size: 10pt; color: #444; white-space: nowrap; }
+  .role-company { font-size: 10.5pt; color: #333; margin-bottom: 4px; }
+  ul { margin-left: 16px; margin-bottom: 6px; }
+  li { margin-bottom: 3px; }
+  .skills-section p { margin-bottom: 4px; }
+  .cert-line { margin-bottom: 4px; }
+  .cert-line a { color: #000; text-decoration: none; }
+  .lang-line { margin-bottom: 2px; }
+  .print-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+    background: #1d1d1f; color: #fff; padding: 12px 24px;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+    font-family: Inter, -apple-system, sans-serif; font-size: 14px;
+  }
+  .print-bar button {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 28px; background: #fff; color: #1d1d1f;
+    border: none; border-radius: 980px; font-size: 14px;
+    font-weight: 600; cursor: pointer; transition: all 0.2s;
+    font-family: Inter, -apple-system, sans-serif;
+    opacity: 0.4; pointer-events: none;
+  }
+  .print-bar button.ready { opacity: 1; pointer-events: auto; }
+  .print-bar button.ready:hover { background: #e5e5ea; transform: scale(1.02); }
+  .print-bar .dot { width: 8px; height: 8px; border-radius: 50%; background: #ff9f0a; }
+  .print-bar .dot.ok { background: #30d158; }
+  .print-bar .status-text { color: #86868b; font-size: 13px; }
+  .print-bar .status-text.ok { color: #30d158; }
+  @media print {
+    .print-bar { display: none !important; }
+    body { padding: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="print-bar" id="print-bar">
+  <span class="dot" id="status-dot"></span>
+  <span class="status-text" id="status-text">Verifying resume content…</span>
+  <button id="save-pdf-btn" onclick="window.print()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Save as PDF
+  </button>
+</div>
+
+<div id="resume-content" style="opacity:0; transition: opacity 0.3s;">
+<h1>MARIANNE WONG</h1>
+<p class="contact-line">
+  marianne_wong@protonmail.com &nbsp;|&nbsp; +6019-234-5442 &nbsp;|&nbsp; Dengkil, Selangor, Malaysia
+  <br>linkedin.com/in/mwhm &nbsp;|&nbsp; mwhm101.vercel.app
+</p>
+
+<h2>Professional Summary</h2>
+<p>
+  Cyber Risk Analyst with 3+ years of experience in governance, risk, and compliance (GRC), third-party risk management, and security operations. Skilled in vendor security assessments (ISO 27001, SOC 2, PCI-DSS), security awareness program design, threat intelligence analysis, and AI-enhanced GRC automation. CompTIA Security+ certified.
+</p>
+
+<h2>Experience</h2>
+
+<div class="role-header"><span class="role-title">Risk Analyst</span><span class="role-date">Dec 2025 – Present</span></div>
+<p class="role-company">Grab — Petaling Jaya, Malaysia</p>
+<ul>
+  <li>Conduct third-party security risk assessments evaluating vendor controls across infrastructure security, data protection, and compliance.</li>
+  <li>Perform due diligence reviews of vendor security documentation including ISMS policies, ISO 27001, SOC 2, and PCI-DSS attestations.</li>
+  <li>Maintain vendor risk register and provide regular updates to management.</li>
+  <li>Develop and track remediation plans for identified findings, ensuring timely risk mitigation.</li>
+</ul>
+
+<div class="role-header"><span class="role-title">Junior Security Analyst</span><span class="role-date">Jan 2023 – Dec 2025</span></div>
+<p class="role-company">Deriv HQ — Cyberjaya, Malaysia</p>
+<ul>
+  <li>Reviewed regulatory compliance (DORA, PCI-DSS) through policy reviews, gap analyses, and vendor risk assessments.</li>
+  <li>Spearheaded security awareness programs using KnowBe4 phishing simulations and Secure Code Warrior tournaments. Achieved 90% completion rate and 97% participation; improved phishing resilience by 40%.</li>
+  <li>Co-led offensive security campaigns (quishing, tailgating, deepfake, KYC fraud, USB drops), reducing attack surface by 30%.</li>
+  <li>Investigated security incidents, documented reports, and updated incident response playbooks for SOC team.</li>
+  <li>Delivered Threat Map Model, quarterly PCI-DSS vulnerability scans (Qualys), and DORA readiness assessments.</li>
+  <li>Gathered FAQs for AI-powered security chatbot, reducing help desk workload by 25%.</li>
+  <li>Applied AI tools to automate GRC processes; analyzed 200+ weekly threat intelligence feeds.</li>
+</ul>
+
+<div class="role-header"><span class="role-title">BeSquare IT Graduate Programme</span><span class="role-date">Jun 2022 – Dec 2022</span></div>
+<p class="role-company">Deriv HQ — Cyberjaya, Malaysia</p>
+<ul>
+  <li>Completed 9-module programme spanning full-stack development, DevOps, cybersecurity, business intelligence, and trading.</li>
+  <li>Developed full-stack web application as UI/UX designer, front-end developer, and security engineer; implemented input validation and password hashing.</li>
+</ul>
+
+<div class="role-header"><span class="role-title">IT Project Management Intern</span><span class="role-date">Mar 2021 – Jun 2021</span></div>
+<p class="role-company">Asian Supply Base — Labuan, Malaysia</p>
+<ul>
+  <li>Partnered with IT, procurement, and project management teams to design network improvement plans.</li>
+  <li>Supported vendor meetings and stakeholder discussions for project initiatives.</li>
+</ul>
+
+<h2>Education</h2>
+<div class="role-header"><span class="role-title">BSc (Hons) Cybersecurity</span><span class="role-date">May 2019 – Apr 2022</span></div>
+<p class="role-company">Asia Pacific Institute of Technology (APIIT) — CGPA 3.7</p>
+
+<h2>Certifications</h2>
+<p class="cert-line"><strong>CompTIA Security+</strong> — Valid through February 2029 | <a href="https://www.credly.com/badges/c6a9aee8-dd04-4905-b3b9-e39ab2134414/public_url">Verify on Credly</a></p>
+
+<h2>Skills</h2>
+<div class="skills-section">
+<p><strong>Core Competencies:</strong> Third-Party Vendor Risk Assessment, Gap Analysis, Security Awareness Programs, Incident Playbooks and Reporting, Threat Intelligence Analysis, DORA Compliance, PCI-DSS, AI Prompting</p>
+<p><strong>GRC and Risk Tools:</strong> MetricStreams, UpGuard, Qualys, KnowBe4, JIRA, ClickUp</p>
+<p><strong>Security and Infrastructure:</strong> CrowdStrike, BurpSuite, Wireshark, Nmap, CATO, NordLayer, FortiManager, Linux</p>
+<p><strong>MDM and Endpoint:</strong> Kandji, JumpCloud, JamF, Microsoft 365, Google Workspace</p>
+<p><strong>AI and Automation:</strong> Google Gemini, n8n</p>
+<p><strong>Practical Platforms:</strong> TryHackMe, Hack The Box</p>
+</div>
+
+<h2>CTF and Extracurricular</h2>
+<ul>
+  <li><strong>Global Cyber Skills Benchmark CTF 2025</strong> (Operation Blackout) — Ranked 57th out of 796 participants</li>
+  <li><strong>Girls in CTF 2024</strong> — Ranked 65th out of 80 participants</li>
+  <li><strong>Wiz AI Security Challenge 2025</strong> — Completed all AI prompt injection challenges</li>
+  <li><strong>Kaspersky CTF 2025</strong> — Participant</li>
+</ul>
+
+<h2>Languages</h2>
+<p class="lang-line">English (Native) | Malay (Fluent) | Mandarin (Conversational)</p>
+
+</div>
+
+<script>
+(function() {
+  var maxAttempts = 40;
+  var attempt = 0;
+  var interval = 150;
+  var dot = document.getElementById('status-dot');
+  var statusText = document.getElementById('status-text');
+  var saveBtn = document.getElementById('save-pdf-btn');
+  var content = document.getElementById('resume-content');
+
+  var checks = [
+    function() { return !!document.getElementById('resume-content'); },
+    function() { return document.querySelectorAll('#resume-content h2').length >= 6; },
+    function() { return document.querySelectorAll('#resume-content li').length >= 12; },
+    function() { return document.getElementById('resume-content').textContent.length > 2000; },
+    function() {
+      var text = document.getElementById('resume-content').textContent;
+      return text.indexOf('MARIANNE WONG') !== -1 &&
+             text.indexOf('CompTIA Security') !== -1 &&
+             text.indexOf('Grab') !== -1 &&
+             text.indexOf('Deriv') !== -1 &&
+             text.indexOf('BSc') !== -1;
+    },
+    function() {
+      return document.readyState === 'complete' && document.fonts && document.fonts.ready ?
+        document.fonts.ready.then(function() { return true; }) : true;
+    }
+  ];
+
+  function runChecks() {
+    attempt++;
+    var allPassed = true;
+
+    for (var i = 0; i < checks.length; i++) {
+      var result = checks[i]();
+      if (result && typeof result.then === 'function') {
+        allPassed = false;
+        result.then(function() {
+          attempt = maxAttempts - 2;
+          runChecks();
+        });
+        return;
+      }
+      if (!result) {
+        allPassed = false;
+        break;
+      }
+    }
+
+    if (allPassed) {
+      clearInterval(poller);
+      onReady();
+    } else if (attempt >= maxAttempts) {
+      clearInterval(poller);
+      statusText.textContent = 'Resume loaded with reduced verification';
+      statusText.classList.add('ok');
+      dot.classList.add('ok');
+      content.style.opacity = '1';
+      saveBtn.classList.add('ready');
+    }
+  }
+
+  function onReady() {
+    statusText.textContent = 'Resume verified — ready to save as PDF';
+    statusText.classList.add('ok');
+    dot.classList.add('ok');
+    content.style.opacity = '1';
+    saveBtn.classList.add('ready');
+  }
+
+  if (document.readyState === 'complete') {
+    runChecks();
+    var poller = setInterval(runChecks, interval);
+  } else {
+    window.addEventListener('load', function() {
+      runChecks();
+      var poller = setInterval(runChecks, interval);
+    });
+  }
+})();
+<\/script>
+</body>
+</html>`;
+    }
+
+    // ── ATS Button Logic ──
+    const atsBtn = document.getElementById('ats-btn');
+    const atsBtnText = document.getElementById('ats-btn-text');
+    const atsStatus = document.getElementById('ats-status');
+    let atsWindow = null;
+    let atsPoller = null;
+
+    function initATSButton() {
+      // Build the HTML content and write to a hidden iframe first to validate
+      const atsHTML = buildATSResume();
+      const iframe = document.createElement('iframe');
+      iframe.style.cssText = 'position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;';
+      document.body.appendChild(iframe);
+
+      let iframeReady = false;
+
+      const iframePoller = setInterval(() => {
+        try {
+          const doc = iframe.contentDocument || iframe.contentWindow.document;
+          if (doc && doc.readyState === 'complete' && doc.body) {
+            const content = doc.getElementById('resume-content');
+            const text = content ? content.textContent : '';
+            const h2s = doc.querySelectorAll('#resume-content h2');
+            const lis = doc.querySelectorAll('#resume-content li');
+            const valid =
+              text.length > 2000 &&
+              h2s.length >= 6 &&
+              lis.length >= 12 &&
+              text.indexOf('MARIANNE WONG') !== -1 &&
+              text.indexOf('CompTIA Security') !== -1;
+
+            if (valid) {
+              clearInterval(iframePoller);
+              document.body.removeChild(iframe);
+              iframeReady = true;
+              atsBtn.classList.remove('loading');
+              atsBtn.classList.add('ready');
+              atsBtn.disabled = false;
+              atsBtnText.textContent = 'Download ATS Resume (PDF)';
+              atsStatus.textContent = 'ATS resume ready — opens in new tab for preview before saving';
+              atsStatus.style.color = '#30d158';
+              lucide.createIcons();
+            }
+          }
+        } catch (e) {
+          // cross-origin or not ready yet
+        }
+      }, 150);
+
+      // Timeout fallback
+      setTimeout(() => {
+        if (!iframeReady) {
+          clearInterval(iframePoller);
+          try { document.body.removeChild(iframe); } catch(e) {}
+          atsBtn.classList.remove('loading');
+          atsBtn.classList.add('ready');
+          atsBtn.disabled = false;
+          atsBtnText.textContent = 'Download ATS Resume (PDF)';
+          atsStatus.textContent = 'ATS resume ready — opens in new tab for preview before saving';
+          atsStatus.style.color = '#30d158';
+          lucide.createIcons();
+        }
+      }, 7000);
+
+      // Write content to iframe
+      setTimeout(() => {
+        try {
+          const doc = iframe.contentDocument || iframe.contentWindow.document;
+          doc.open();
+          doc.write(atsHTML);
+          doc.close();
+        } catch (e) {
+          // fallback: just enable button
+          clearInterval(iframePoller);
+          try { document.body.removeChild(iframe); } catch(ex) {}
+          atsBtn.classList.remove('loading');
+          atsBtn.classList.add('ready');
+          atsBtn.disabled = false;
+          atsBtnText.textContent = 'Download ATS Resume (PDF)';
+          lucide.createIcons();
+        }
+      }, 100);
+    }
+
+    atsBtn.addEventListener('click', () => {
+      if (atsBtn.disabled) return;
+
+      const atsHTML = buildATSResume();
+      atsWindow = window.open('', '_blank');
+
+      if (!atsWindow) {
+        showToast('Pop-up blocked — please allow pop-ups for this site');
+        return;
+      }
+
+      atsWindow.document.open();
+      atsWindow.document.write(atsHTML);
+      atsWindow.document.close();
+
+      showToast('ATS resume opened — preview it, then save as PDF');
+    });
+
+    // Start building ATS resume when CTA section is near viewport
+    const downloadSection = document.getElementById('download');
+    let atsInitiated = false;
+
+    const atsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !atsInitiated) {
+          atsInitiated = true;
+          atsBtn.classList.add('loading');
+          initATSButton();
+          atsObserver.unobserve(downloadSection);
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    atsObserver.observe(downloadSection);
   </script>
 </body>
 </html>
