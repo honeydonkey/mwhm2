@@ -105,10 +105,6 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     ATS RESUME — stored as text/html so browser never executes it
-     and the </script> inside cannot break the parent page.
-     ═══════════════════════════════════════════════════════════════ -->
 <script type="text/html" id="ats-template">
 <!DOCTYPE html>
 <html lang="en">
@@ -134,7 +130,6 @@
     max-width: 100%;
   }
 
-  /* ── Print toolbar (hidden when printing) ── */
   .print-toolbar {
     position: fixed;
     top: 0;
@@ -185,7 +180,6 @@
     .page { padding: 0; }
   }
 
-  /* ── Resume content ── */
   .page {
     max-width: 6.5in;
     margin: 0 auto;
@@ -198,6 +192,13 @@
     letter-spacing: 0.5px;
     margin-bottom: 4px;
     color: #000000;
+  }
+
+  .headline {
+    font-size: 10.5pt;
+    color: #000000;
+    margin-bottom: 4px;
+    font-weight: bold;
   }
 
   .contact {
@@ -292,6 +293,7 @@
 <div class="page">
 
 <div class="name">MARIANNE WONG</div>
+<div class="headline">Cyber Risk Analyst | TPRM &amp; GRC | ISO 27001 &middot; SOC 2 &middot; PCI-DSS | CompTIA Security+</div>
 <div class="contact">
   marianne_wong@protonmail.com | +60 19-234-5442 | Dengkil, Selangor, Malaysia<br>
   linkedin.com/in/mwhm | mwhm101.vercel.app
@@ -299,7 +301,7 @@
 
 <div class="section-header">Professional Summary</div>
 <p class="summary">
-  Cyber Risk Analyst with over 3 years of experience in governance, risk, and compliance (GRC), third-party risk management (TPRM), and security operations. Proven track record conducting vendor security risk assessments against ISO 27001, SOC 2, and PCI-DSS frameworks. Experienced in building security awareness programs that achieved 97% participation and 40% improvement in phishing resilience. Skilled in threat intelligence analysis, incident response, regulatory compliance including DORA, and applying AI tools to automate GRC processes. CompTIA Security+ certified.
+  Reduced organizational attack surface by 30% and improved phishing resilience by 40% through security programs reaching 97% participation across 1,200+ employees. Currently conducting third-party risk assessments at Grab against ISO 27001, SOC 2, and PCI-DSS. Previously at Deriv — a fintech serving 3M+ customers across 150+ countries — where I authored 6+ incident reports, analyzed 200+ weekly threat intelligence feeds, and reduced help desk security workload by 25%. CompTIA Security+ certified.
 </p>
 
 <div class="section-header">Professional Experience</div>
@@ -320,22 +322,14 @@
 <div class="date-line">January 2023 - December 2025</div>
 <ul class="bullets">
   <li>Reviewed regulatory compliance including Digital Operational Resilience Act (DORA) and PCI-DSS through policy reviews, gap analyses, and vendor risk assessments</li>
-  <li>Spearheaded enterprise security awareness programs using KnowBe4 phishing simulations and Secure Code Warrior secure coding tournaments; achieved 90% completion rate and 97% participation across the organization</li>
+  <li>Spearheaded enterprise security awareness programs using KnowBe4 phishing simulations and Secure Code Warrior secure coding tournaments; achieved 90% completion rate and 97% participation across 1,200+ employees</li>
   <li>Improved phishing resilience by 40% through targeted training campaigns, simulated attacks, and metrics-driven program improvements</li>
   <li>Co-led offensive security campaigns including quishing, tailgating, deepfake, KYC fraud, and USB drop exercises, reducing organizational attack surface by 30%</li>
-  <li>Investigated security incidents, documented findings in formal incident reports, and updated incident response playbooks for the Security Operations Center (SOC) team</li>
+  <li>Authored 6+ security incident reports, documented findings, and updated incident response playbooks for the Security Operations Center (SOC) team</li>
   <li>Delivered Threat Map Model, conducted quarterly PCI-DSS vulnerability scanning using Qualys, and performed DORA readiness assessments</li>
   <li>Gathered and curated FAQs for an AI-powered security chatbot, reducing help desk security-related workload by 25%</li>
   <li>Applied AI tools including Google Gemini to automate GRC processes including regulatory gap analysis and vendor risk assessment workflows</li>
   <li>Analyzed over 200 weekly threat intelligence feeds to identify emerging threats, vulnerabilities, and indicators of compromise relevant to the organization</li>
-</ul>
-
-<div class="job-title-line">BeSquare IT Graduate Programme</div>
-<div class="company-line">Deriv HQ | Cyberjaya, Malaysia</div>
-<div class="date-line">June 2022 - December 2022</div>
-<ul class="bullets">
-  <li>Completed intensive 9-module graduate programme covering full-stack development, DevOps, cybersecurity, business intelligence, and trading systems</li>
-  <li>Developed a full-stack web application serving as UI/UX designer, front-end developer, and security engineer; implemented input validation, output encoding, and password hashing (bcrypt)</li>
 </ul>
 
 <div class="job-title-line">IT Project Management Intern</div>
@@ -346,23 +340,23 @@
   <li>Supported vendor evaluation meetings and stakeholder discussions for IT project initiatives</li>
 </ul>
 
-<div class="section-header">Education</div>
-<div class="job-title-line">Bachelor of Science (Honours) in Cybersecurity</div>
-<div class="company-line">Asia Pacific Institute of Technology (APIIT)</div>
-<div class="date-line">May 2019 - April 2022 | CGPA: 3.7</div>
+<div class="section-header">Technical Skills</div>
+<div class="skill-group"><strong>GRC and Risk Management:</strong> MetricStreams, UpGuard, Qualys, KnowBe4, JIRA, ClickUp</div>
+<div class="skill-group"><strong>Security and Infrastructure:</strong> CrowdStrike Falcon, BurpSuite, Wireshark, Nmap, CATO Networks, NordLayer, FortiManager, Linux command line</div>
+<div class="skill-group"><strong>Mobile Device Management and Endpoint:</strong> Kandji, JumpCloud, JamF Pro, Microsoft 365 Admin Center, Google Workspace Admin</div>
+<div class="skill-group"><strong>AI and Automation:</strong> Google Gemini, n8n workflow automation, AI-assisted gap analysis and risk assessment</div>
+<div class="skill-group"><strong>Frameworks and Standards:</strong> ISO 27001, SOC 2 Type II, PCI-DSS, DORA, NIST Cybersecurity Framework</div>
+<div class="skill-group"><strong>Core Competencies:</strong> Third-party vendor risk assessment, gap analysis, security awareness program design, incident response playbooks, threat intelligence analysis, regulatory compliance, risk register management, remediation tracking</div>
 
 <div class="section-header">Certifications</div>
 <div class="cert-line">
   <strong>CompTIA Security+</strong> | Valid through February 2029 | Credential ID: Verify at credly.com
 </div>
 
-<div class="section-header">Technical Skills</div>
-<div class="skill-group"><strong>GRC and Risk Management:</strong> MetricStreams, UpGuard, Qualys, KnowBe4, JIRA, ClickUp</div>
-<div class="skill-group"><strong>Security and Infrastructure:</strong> CrowdStrike Falcon, BurpSuite, Wireshark, Nmap, CATO Networks, NordLayer, FortiManager, Linux command line</div>
-<div class="skill-group"><strong>Mobile Device Management and Endpoint:</strong> Kandji, JumpCloud, JamF Pro, Microsoft 365 Admin Center, Google Workspace Admin</div>
-<div class="skill-group"><strong>AI and Automation:</strong> Google Gemini, n8n workflow automation, AI-assisted gap analysis and risk assessment</div>
-<div class="skill-group"><strong>Frameworks and Standards:</strong> ISO 27001, SOC 2, PCI-DSS, DORA, NIST Cybersecurity Framework</div>
-<div class="skill-group"><strong>Core Competencies:</strong> Third-party vendor risk assessment, gap analysis, security awareness program design, incident response playbooks, threat intelligence analysis, regulatory compliance, risk register management, remediation tracking</div>
+<div class="section-header">Education</div>
+<div class="job-title-line">Bachelor of Science (Honours) in Cybersecurity</div>
+<div class="company-line">Asia Pacific Institute of Technology (APIIT)</div>
+<div class="date-line">May 2019 - April 2022 | CGPA: 3.7</div>
 
 <div class="section-header">Languages</div>
 <div class="lang-line">English (Native) | Malay (Fluent) | Mandarin (Conversational)</div>
@@ -421,7 +415,7 @@
       Marianne Wong
     </h1>
     <p class="text-lg sm:text-xl text-[#6e6e73] leading-relaxed max-w-2xl mb-10">
-      3+ years in GRC, third-party risk management, and security operations. Currently at Grab, conducting vendor security assessments across ISO 27001, SOC 2, and PCI-DSS.
+      3+ years in GRC and TPRM — from building org-wide security awareness programs to authoring incident reports and supporting SOC operations. Currently at Grab, assessing vendors against ISO 27001, SOC 2, and PCI-DSS.
     </p>
     <div class="flex flex-wrap gap-4 mb-12">
       <a href="https://flowcv.com/resume/2mofja4dwmne" target="_blank" rel="noopener noreferrer" class="btn-primary">
@@ -901,7 +895,6 @@
     setTimeout(function() { toast.classList.remove('show'); }, duration || 3000);
   }
 
-  // ATS button — just read template and open in new tab. No loops.
   document.getElementById('ats-btn').addEventListener('click', function() {
     var template = document.getElementById('ats-template');
     var html = template.textContent || template.innerText;
