@@ -15,7 +15,6 @@
 
     .card { background: #f5f5f7; border-radius: 20px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
     .card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgb(0 0 0 / 0.06); }
-
     .card-link { text-decoration: none; color: inherit; display: block; }
     .card-link .card:hover { box-shadow: 0 8px 30px rgb(0 0 0 / 0.1); }
 
@@ -29,8 +28,7 @@
       display: inline-flex; align-items: center; justify-content: center;
       gap: 8px; padding: 16px 32px; background: #1d1d1f; color: #fff;
       font-size: 15px; font-weight: 500; border-radius: 980px;
-      transition: all 0.25s ease; text-decoration: none;
-      box-sizing: border-box;
+      transition: all 0.25s ease; text-decoration: none; box-sizing: border-box;
     }
     .btn-primary:hover { background: #333; transform: scale(1.02); }
     .btn-primary:active { transform: scale(0.98); }
@@ -39,8 +37,7 @@
       display: inline-flex; align-items: center; justify-content: center;
       gap: 8px; padding: 16px 32px; background: transparent; color: #1d1d1f;
       font-size: 15px; font-weight: 500; border-radius: 980px;
-      border: 1px solid #d2d2d7; transition: all 0.25s ease; text-decoration: none;
-      box-sizing: border-box;
+      border: 1px solid #d2d2d7; transition: all 0.25s ease; text-decoration: none; box-sizing: border-box;
     }
     .btn-secondary:hover { background: #f5f5f7; border-color: #86868b; }
 
@@ -48,8 +45,7 @@
       display: inline-flex; align-items: center; justify-content: center;
       gap: 8px; padding: 16px 32px; background: #ffffff; color: #1d1d1f;
       font-size: 15px; font-weight: 500; border-radius: 980px;
-      transition: all 0.25s ease; text-decoration: none;
-      box-sizing: border-box;
+      transition: all 0.25s ease; text-decoration: none; box-sizing: border-box;
     }
     .btn-light:hover { background: #e5e5ea; transform: scale(1.02); }
     .btn-light:active { transform: scale(0.98); }
@@ -58,8 +54,7 @@
       display: inline-flex; align-items: center; justify-content: center;
       gap: 8px; padding: 16px 32px; background: transparent; color: #ffffff;
       font-size: 15px; font-weight: 500; border-radius: 980px;
-      border: 1px solid #424245; transition: all 0.25s ease; text-decoration: none;
-      box-sizing: border-box;
+      border: 1px solid #424245; transition: all 0.25s ease; text-decoration: none; box-sizing: border-box;
     }
     .btn-ghost-dark:hover { background: #2d2d2f; border-color: #6e6e73; }
 
@@ -71,6 +66,14 @@
       cursor: pointer; box-sizing: border-box;
     }
     .btn-ats:hover { background: rgba(48,209,88,0.1); }
+
+    .btn-text {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 15px; font-weight: 500; color: #1d1d1f;
+      background: none; border: none; cursor: pointer; padding: 0;
+      font-family: 'Inter', sans-serif; transition: opacity 0.2s;
+    }
+    .btn-text:hover { opacity: 0.6; }
 
     .experience-item { border-left: 1px solid #e5e5ea; padding-left: 32px; transition: border-color 0.2s; }
     .experience-item:hover { border-left-color: #1d1d1f; }
@@ -98,6 +101,118 @@
     }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
 
+    /* ── Sub-page ── */
+    #sub-page { display: none; }
+    #sub-page.active { display: block; }
+    #main-page.hidden { display: none; }
+
+    .sub-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: rgba(255,255,255,0.82); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid #e5e5ea;
+    }
+
+    .blog-content { line-height: 1.75; }
+    .blog-content p { margin-bottom: 1em; }
+
+    /* ── Activity list on sub-page ── */
+    .act-year {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #86868b;
+      padding-bottom: 8px; margin-bottom: 16px;
+      border-bottom: 1px solid #e5e5ea;
+    }
+    .act-year-group { margin-bottom: 36px; }
+    .act-year-group:last-child { margin-bottom: 0; }
+    .act-entries { display: flex; flex-direction: column; gap: 10px; }
+
+    .act-card {
+      background: #f5f5f7; border-radius: 16px; padding: 20px 24px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .act-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgb(0 0 0 / 0.05);
+    }
+    .act-card-stats { margin-top: 10px; }
+    .act-card-stats .progress-bar { max-width: 200px; }
+    .act-card-evidence {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 13px; font-weight: 500; color: #1d1d1f;
+      text-decoration: none; margin-top: 12px; transition: opacity 0.2s;
+    }
+    .act-card-evidence:hover { opacity: 0.6; }
+
+    .cat-badge {
+      display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+      text-transform: uppercase; padding: 2px 8px; border-radius: 100px;
+    }
+    .cat-ctf { background: #e8f5e9; color: #2e7d32; }
+    .cat-certificate { background: #e3f2fd; color: #1565c0; }
+    .cat-activity { background: #fff3e0; color: #e65100; }
+
+    /* ── Edit mode ── */
+    .edit-banner {
+      position: fixed; top: 0; left: 0; right:0; z-index: 100;
+      background: #1d1d1f; color: #fff; text-align: center;
+      padding: 10px 16px; font-size: 13px; font-weight: 500; display: none;
+    }
+    .edit-banner.visible { display: block; }
+    .edit-banner kbd {
+      display: inline-block; padding: 2px 7px; font-size: 11px; font-family: 'Inter', sans-serif;
+      background: #424245; border-radius: 4px; color: #fff; font-weight: 600; margin: 0 2px;
+    }
+
+    .fab-btn {
+      position: fixed; bottom: 24px; right: 24px; z-index: 90;
+      width: 56px; height: 56px; background: #1d1d1f; color: #fff;
+      border-radius: 50%; border: none; cursor: pointer;
+      display: none; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgb(0 0 0 / 0.2); transition: all 0.25s ease;
+    }
+    .fab-btn.visible { display: flex; }
+    .fab-btn:hover { background: #333; transform: scale(1.08); }
+
+    .modal-overlay { position: fixed; inset: 0; z-index: 200; display: none; }
+    .modal-overlay.open { display: block; }
+    .modal-backdrop {
+      position: absolute; inset: 0; background: rgb(0 0 0 / 0.4);
+      backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    }
+    .modal-panel {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: #fff; border-radius: 24px 24px 0 0;
+      max-height: 88vh; overflow-y: auto;
+      animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .modal-tab {
+      padding: 12px 20px; font-size: 14px; font-weight: 500; color: #86868b;
+      border: none; border-bottom: 2px solid transparent;
+      background: none; cursor: pointer; transition: all 0.2s;
+    }
+    .modal-tab:hover { color: #1d1d1f; }
+    .modal-tab.active { color: #1d1d1f; border-bottom-color: #1d1d1f; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-label { display: block; font-size: 13px; font-weight: 600; color: #1d1d1f; margin-bottom: 6px; }
+    .form-input {
+      width: 100%; padding: 10px 14px; font-size: 14px; font-family: 'Inter', sans-serif;
+      border: 1px solid #e5e5ea; border-radius: 12px; background: #fff; color: #1d1d1f;
+      transition: border-color 0.2s; outline: none; box-sizing: border-box;
+    }
+    .form-input:focus { border-color: #1d1d1f; }
+    .form-input::placeholder { color: #c7c7cc; }
+    textarea.form-input { resize: vertical; min-height: 80px; line-height: 1.6; }
+    select.form-input {
+      cursor: pointer; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2386868b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
+    }
+    .form-hint { font-size: 12px; color: #86868b; margin-top: 4px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .preview-box { background: #f5f5f7; border-radius: 16px; padding: 24px; border: 1px solid #e5e5ea; }
+
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: #d2d2d7; border-radius: 3px; }
@@ -112,200 +227,43 @@
 <meta charset="UTF-8">
 <title>Marianne Wong - Resume</title>
 <style>
-  @page {
-    margin: 1in 1in 0.8in 1in;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: "Times New Roman", "Times", "Georgia", serif;
-    font-size: 11pt;
-    line-height: 1.5;
-    color: #000000;
-    background: #ffffff;
-    padding: 0;
-    max-width: 100%;
-  }
-
-  .print-toolbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 9999;
-    background: #1d1d1f;
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #ffffff;
-  }
-  .print-toolbar .hint {
-    color: #86868b;
-    font-size: 13px;
-  }
-  .print-toolbar .hint span {
-    color: #30d158;
-    font-weight: 600;
-  }
-  .print-toolbar button {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 28px;
-    background: #ffffff;
-    color: #1d1d1f;
-    border: none;
-    border-radius: 980px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .print-toolbar button:hover {
-    background: #e5e5ea;
-    transform: scale(1.02);
-  }
-
-  @media print {
-    .print-toolbar { display: none !important; }
-    body { margin: 0; padding: 0; }
-    .page { padding: 0; }
-  }
-
-  .page {
-    max-width: 6.5in;
-    margin: 0 auto;
-    padding-top: 48px;
-  }
-
-  .name {
-    font-size: 18pt;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-    color: #000000;
-  }
-
-  .headline {
-    font-size: 10.5pt;
-    color: #000000;
-    margin-bottom: 4px;
-    font-weight: bold;
-  }
-
-  .contact {
-    font-size: 10pt;
-    color: #000000;
-    margin-bottom: 16px;
-    line-height: 1.6;
-  }
-
-  .section-header {
-    font-size: 11pt;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    border-bottom: 2px solid #000000;
-    padding-bottom: 3px;
-    margin-top: 18px;
-    margin-bottom: 10px;
-    color: #000000;
-  }
-
-  .job-title-line {
-    font-size: 11pt;
-    font-weight: bold;
-    color: #000000;
-  }
-
-  .company-line {
-    font-size: 10.5pt;
-    color: #000000;
-    margin-bottom: 4px;
-  }
-
-  .date-line {
-    font-size: 10pt;
-    color: #333333;
-    margin-bottom: 6px;
-  }
-
-  .bullets {
-    margin-left: 18px;
-    margin-bottom: 10px;
-    list-style-type: disc;
-  }
-
-  .bullets li {
-    margin-bottom: 4px;
-    line-height: 1.45;
-    color: #000000;
-  }
-
-  .skill-group {
-    margin-bottom: 6px;
-    font-size: 10.5pt;
-    color: #000000;
-    line-height: 1.5;
-  }
-
-  .skill-group strong {
-    color: #000000;
-  }
-
-  .cert-line {
-    font-size: 10.5pt;
-    color: #000000;
-    margin-bottom: 4px;
-  }
-
-  .lang-line {
-    font-size: 10.5pt;
-    color: #000000;
-  }
-
-  .summary {
-    font-size: 10.5pt;
-    color: #000000;
-    margin-bottom: 4px;
-    line-height: 1.5;
-  }
+  @page { margin: 1in 1in 0.8in 1in; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Times New Roman", "Times", "Georgia", serif; font-size: 11pt; line-height: 1.5; color: #000000; background: #ffffff; padding: 0; max-width: 100%; }
+  .print-toolbar { position: fixed; top: 0; left: 0; right: 0; z-index: 9999; background: #1d1d1f; padding: 14px 24px; display: flex; align-items: center; justify-content: center; gap: 20px; font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; color: #ffffff; }
+  .print-toolbar .hint { color: #86868b; font-size: 13px; }
+  .print-toolbar .hint span { color: #30d158; font-weight: 600; }
+  .print-toolbar button { display: inline-flex; align-items: center; gap: 8px; padding: 10px 28px; background: #ffffff; color: #1d1d1f; border: none; border-radius: 980px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; transition: background 0.2s, transform 0.2s; }
+  .print-toolbar button:hover { background: #e5e5ea; transform: scale(1.02); }
+  @media print { .print-toolbar { display: none !important; } body { margin: 0; padding: 0; } .page { padding: 0; } }
+  .page { max-width: 6.5in; margin: 0 auto; padding-top: 48px; }
+  .name { font-size: 18pt; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .headline { font-size: 10.5pt; margin-bottom: 4px; font-weight: bold; }
+  .contact { font-size: 10pt; margin-bottom: 16px; line-height: 1.6; }
+  .section-header { font-size: 11pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1.2px; border-bottom: 2px solid #000; padding-bottom: 3px; margin-top: 18px; margin-bottom: 10px; }
+  .job-title-line { font-size: 11pt; font-weight: bold; }
+  .company-line { font-size: 10.5pt; margin-bottom: 4px; }
+  .date-line { font-size: 10pt; color: #333333; margin-bottom: 6px; }
+  .bullets { margin-left: 18px; margin-bottom: 10px; list-style-type: disc; }
+  .bullets li { margin-bottom: 4px; line-height: 1.45; }
+  .skill-group { margin-bottom: 6px; font-size: 10.5pt; line-height: 1.5; }
+  .cert-line { font-size: 10.5pt; margin-bottom: 4px; }
+  .lang-line { font-size: 10.5pt; }
+  .summary { font-size: 10.5pt; margin-bottom: 4px; line-height: 1.5; }
 </style>
 </head>
 <body>
-
 <div class="print-toolbar">
   <span class="hint"><span>&#10003;</span> Resume ready</span>
-  <button onclick="window.print()">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    Save as PDF
-  </button>
+  <button onclick="window.print()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Save as PDF</button>
 </div>
-
 <div class="page">
-
 <div class="name">MARIANNE WONG</div>
 <div class="headline">Cyber Risk Analyst | TPRM &amp; GRC | ISO 27001 &middot; SOC 2 &middot; PCI-DSS | CompTIA Security+</div>
-<div class="contact">
-  marianne_wong@protonmail.com | +60 19-234-5442 | Dengkil, Selangor, Malaysia<br>
-  linkedin.com/in/mwhm | mwhm101.vercel.app
-</div>
-
+<div class="contact">marianne_wong@protonmail.com | +60 19-234-5442 | Dengkil, Selangor, Malaysia<br>linkedin.com/in/mwhm | mwhm101.vercel.app</div>
 <div class="section-header">Professional Summary</div>
-<p class="summary">
-  Reduced organizational attack surface by 30% and improved phishing resilience by 40% through security programs reaching 97% participation across 1,200+ employees. Currently conducting third-party risk assessments at Grab against ISO 27001, SOC 2, and PCI-DSS. Previously at Deriv — a fintech serving 3M+ customers across 150+ countries — where I authored 6+ incident reports, analyzed 200+ weekly threat intelligence feeds, and reduced help desk security workload by 25%. CompTIA Security+ certified.
-</p>
-
+<p class="summary">Reduced organizational attack surface by 30% and improved phishing resilience by 40% through security programs reaching 97% participation across 1,200+ employees. Currently conducting third-party risk assessments at Grab against ISO 27001, SOC 2, and PCI-DSS. Previously at Deriv — a fintech serving 3M+ customers across 150+ countries — where I authored 6+ incident reports, analyzed 200+ weekly threat intelligence feeds, and reduced help desk security workload by 25%. CompTIA Security+ certified.</p>
 <div class="section-header">Professional Experience</div>
-
 <div class="job-title-line">Risk Analyst</div>
 <div class="company-line">Grab | Petaling Jaya, Malaysia</div>
 <div class="date-line">December 2025 - Present</div>
@@ -316,7 +274,6 @@
   <li>Develop and track remediation plans for identified security findings, ensuring timely risk mitigation and vendor accountability</li>
   <li>Collaborate with legal, procurement, and engineering teams to integrate security requirements into vendor onboarding and contract processes</li>
 </ul>
-
 <div class="job-title-line">Junior Security Analyst</div>
 <div class="company-line">Deriv HQ | Cyberjaya, Malaysia</div>
 <div class="date-line">January 2023 - December 2025</div>
@@ -331,7 +288,6 @@
   <li>Applied AI tools including Google Gemini to automate GRC processes including regulatory gap analysis and vendor risk assessment workflows</li>
   <li>Analyzed over 200 weekly threat intelligence feeds to identify emerging threats, vulnerabilities, and indicators of compromise relevant to the organization</li>
 </ul>
-
 <div class="job-title-line">IT Project Management Intern</div>
 <div class="company-line">Asian Supply Base | Labuan, Malaysia</div>
 <div class="date-line">March 2021 - June 2021</div>
@@ -339,7 +295,6 @@
   <li>Partnered with IT, procurement, and project management teams to design and document network infrastructure improvement plans</li>
   <li>Supported vendor evaluation meetings and stakeholder discussions for IT project initiatives</li>
 </ul>
-
 <div class="section-header">Technical Skills</div>
 <div class="skill-group"><strong>GRC and Risk Management:</strong> MetricStreams, UpGuard, Qualys, KnowBe4, JIRA, ClickUp</div>
 <div class="skill-group"><strong>Security and Infrastructure:</strong> CrowdStrike Falcon, BurpSuite, Wireshark, Nmap, CATO Networks, NordLayer, FortiManager, Linux command line</div>
@@ -347,36 +302,109 @@
 <div class="skill-group"><strong>AI and Automation:</strong> Google Gemini, n8n workflow automation, AI-assisted gap analysis and risk assessment</div>
 <div class="skill-group"><strong>Frameworks and Standards:</strong> ISO 27001, SOC 2 Type II, PCI-DSS, DORA, NIST Cybersecurity Framework</div>
 <div class="skill-group"><strong>Core Competencies:</strong> Third-party vendor risk assessment, gap analysis, security awareness program design, incident response playbooks, threat intelligence analysis, regulatory compliance, risk register management, remediation tracking</div>
-
 <div class="section-header">Certifications</div>
-<div class="cert-line">
-  <strong>CompTIA Security+</strong> | Valid through February 2029 | Credential ID: Verify at credly.com
-</div>
-
+<div class="cert-line"><strong>CompTIA Security+</strong> | Valid through February 2029 | Credential ID: Verify at credly.com</div>
 <div class="section-header">Education</div>
 <div class="job-title-line">Bachelor of Science (Honours) in Cybersecurity</div>
 <div class="company-line">Asia Pacific Institute of Technology (APIIT)</div>
 <div class="date-line">May 2019 - April 2022 | CGPA: 3.7</div>
-
 <div class="section-header">Languages</div>
 <div class="lang-line">English (Native) | Malay (Fluent) | Mandarin (Conversational)</div>
-
 </div>
-
 </body>
 </html>
 </script>
 
-<!-- Toast -->
 <div id="toast" class="toast">
   <i data-lucide="check-circle" class="w-4 h-4 text-[#30d158]"></i>
   <span id="toast-msg"></span>
 </div>
 
-<!-- Nav -->
+<div id="edit-banner" class="edit-banner">
+  ✏️ Edit Mode — Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> to exit · Click <strong>+</strong> to add entries
+</div>
+
+<button id="fab-btn" class="fab-btn" aria-label="Add new entry">
+  <i data-lucide="plus" class="w-6 h-6"></i>
+</button>
+
+<div id="modal-overlay" class="modal-overlay">
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  <div class="modal-panel">
+    <div class="sticky top-0 bg-white border-b border-[#e5e5ea] px-6 py-4 flex items-center justify-between rounded-t-3xl z-10">
+      <h2 class="text-lg font-semibold tracking-tight">Add New Entry</h2>
+      <button id="modal-close" class="p-2 hover:bg-[#f5f5f7] rounded-full transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+    <div class="flex border-b border-[#e5e5ea] px-6">
+      <button class="modal-tab active" data-tab="experience">Experience</button>
+      <button class="modal-tab" data-tab="activity">CTF / Certificate</button>
+    </div>
+    <div class="p-6">
+      <div id="tab-experience" class="tab-content">
+        <div class="form-group">
+          <label class="form-label">Job Title *</label>
+          <input type="text" id="exp-title" class="form-input" placeholder="e.g. Security Analyst">
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Company *</label><input type="text" id="exp-company" class="form-input" placeholder="e.g. Grab"></div>
+          <div class="form-group"><label class="form-label">Location *</label><input type="text" id="exp-location" class="form-input" placeholder="e.g. Petaling Jaya"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Start Date</label><input type="text" id="exp-start" class="form-input" placeholder="e.g. Jan 2025"></div>
+          <div class="form-group"><label class="form-label">End Date</label><input type="text" id="exp-end" class="form-input" placeholder="e.g. Present" value="Present"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Sort Date <span class="text-[#86868b] font-normal">(YYYY-MM)</span></label>
+          <input type="text" id="exp-sort" class="form-input" placeholder="e.g. 2025-01">
+          <p class="form-hint">Newest entries first.</p>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Bullet Points <span class="text-[#86868b] font-normal">(one per line)</span></label>
+          <textarea id="exp-bullets" class="form-input" rows="6" placeholder="Led security awareness program across 1,200 employees&#10;Reduced phishing click rate by 40%"></textarea>
+        </div>
+      </div>
+      <div id="tab-activity" class="tab-content" style="display:none">
+        <div class="form-group"><label class="form-label">Title *</label><input type="text" id="act-title" class="form-input" placeholder="e.g. HackTheBox University CTF"></div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Year *</label><input type="text" id="act-year" class="form-input" placeholder="e.g. 2025"></div>
+          <div class="form-group"><label class="form-label">Category</label><select id="act-category" class="form-input"><option value="ctf">CTF</option><option value="certificate">Certificate</option><option value="activity">Activity</option></select></div>
+        </div>
+        <div class="form-group"><label class="form-label">Description *</label><input type="text" id="act-desc" class="form-input" placeholder="e.g. Capture The Flag competition"></div>
+        <div class="form-group"><label class="form-label">Display Type</label><select id="act-type" class="form-input"><option value="ranked">Ranked (shows rank bar)</option><option value="completed">Completed (shows checkmark)</option><option value="participant">Participant (shows globe)</option><option value="certificate">Certificate (shows badge)</option></select></div>
+        <div id="rank-fields" class="form-row">
+          <div class="form-group"><label class="form-label">Rank</label><input type="number" id="act-rank" class="form-input" placeholder="e.g. 57"></div>
+          <div class="form-group"><label class="form-label">Total Participants</label><input type="number" id="act-total" class="form-input" placeholder="e.g. 796"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Evidence Link <span class="text-[#86868b] font-normal">(optional)</span></label><input type="url" id="act-link" class="form-input" placeholder="https://drive.google.com/..."></div>
+        <div class="form-group"><label class="form-label">Blog Content <span class="text-[#86868b] font-normal">(optional)</span></label><textarea id="act-content" class="form-input" rows="4" placeholder="Write about your experience..."></textarea></div>
+      </div>
+      <div class="mt-8 border-t border-[#e5e5ea] pt-8">
+        <p class="section-label mb-4">Live Preview</p>
+        <div class="preview-box" id="modal-preview"></div>
+      </div>
+      <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 pb-4">
+        <button id="copy-json-btn" class="btn-primary" style="padding:12px 24px; font-size:14px;">
+          <i data-lucide="clipboard" class="w-4 h-4"></i> Copy JSON to Clipboard
+        </button>
+        <p class="text-sm text-[#86868b] leading-relaxed">
+          Paste into the <code class="bg-[#f5f5f7] px-1.5 py-0.5 rounded text-xs font-mono">experiences</code> or <code class="bg-[#f5f5f7] px-1.5 py-0.5 rounded text-xs font-mono">activities</code> array.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- MAIN PAGE                                                        -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="main-page">
+
 <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <div class="max-w-[1080px] mx-auto px-6 lg:px-8 h-12 flex items-center justify-between">
-    <a href="#" class="text-sm font-semibold tracking-tight">Marianne Wong</a>
+    <a href="#" class="text-sm font-semibold tracking-tight" onclick="goHome(); return false;">Marianne Wong</a>
     <div class="hidden md:flex items-center gap-8">
       <a href="#about" class="nav-link">About</a>
       <a href="#experience" class="nav-link">Experience</a>
@@ -385,12 +413,9 @@
     </div>
     <div class="flex items-center gap-4">
       <a href="https://flowcv.com/resume/2mofja4dwmne" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 text-sm font-medium text-[#1d1d1f] hover:opacity-70 transition-opacity">
-        Resume
-        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        Resume <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
       </a>
-      <button id="menu-btn" class="md:hidden p-1" aria-label="Menu">
-        <i data-lucide="menu" class="w-5 h-5"></i>
-      </button>
+      <button id="menu-btn" class="md:hidden p-1" aria-label="Menu"><i data-lucide="menu" class="w-5 h-5"></i></button>
     </div>
   </div>
   <div id="menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-[#e5e5ea]">
@@ -400,517 +425,613 @@
       <a href="#skills" class="nav-link text-base menu-link">Skills</a>
       <a href="#activities" class="nav-link text-base menu-link">Activities</a>
       <a href="https://flowcv.com/resume/2mofja4dwmne" target="_blank" rel="noopener noreferrer" class="btn-primary justify-center text-base mt-2 menu-link">
-        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-        View Resume
+        <i data-lucide="arrow-up-right" class="w-4 h-4"></i> View Resume
       </a>
     </div>
   </div>
 </nav>
 
-<!-- Hero -->
 <section class="pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-36">
   <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
     <p class="section-label mb-6">Cyber Risk Analyst — TPRM</p>
-    <h1 class="text-[44px] sm:text-[56px] lg:text-[72px] font-semibold leading-[1.05] tracking-tight max-w-3xl mb-6">
-      Marianne Wong
-    </h1>
+    <h1 class="text-[44px] sm:text-[56px] lg:text-[72px] font-semibold leading-[1.05] tracking-tight max-w-3xl mb-6">Marianne Wong</h1>
     <p class="text-lg sm:text-xl text-[#6e6e73] leading-relaxed max-w-2xl mb-10">
       3+ years in GRC and TPRM — from building org-wide security awareness programs to authoring incident reports and supporting SOC operations. Currently at Grab, assessing vendors against ISO 27001, SOC 2, and PCI-DSS.
     </p>
     <div class="flex flex-wrap gap-4 mb-12">
       <a href="https://flowcv.com/resume/2mofja4dwmne" target="_blank" rel="noopener noreferrer" class="btn-primary">
-        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-        View Resume
+        <i data-lucide="arrow-up-right" class="w-4 h-4"></i> View Resume
       </a>
-      <a href="#experience" class="btn-secondary">
-        View Experience
-      </a>
+      <a href="#experience" class="btn-secondary">View Experience</a>
     </div>
     <div class="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-[#86868b]">
-      <span class="inline-flex items-center gap-1.5">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#30d158]"></span>
-        Available · 60 days notice
-      </span>
+      <span class="inline-flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-[#30d158]"></span> Available · 60 days notice</span>
       <span>Dengkil, Selangor</span>
       <a href="mailto:marianne_wong@protonmail.com" class="hover:text-[#1d1d1f] transition-colors">marianne_wong@protonmail.com</a>
     </div>
   </div>
 </section>
 
-<!-- Key Metrics -->
 <section class="pb-20 sm:pb-28">
   <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#e5e5ea] rounded-2xl overflow-hidden">
-      <div class="bg-white p-8 sm:p-10 text-center">
-        <div class="text-3xl sm:text-4xl font-semibold tracking-tight">3+</div>
-        <div class="text-sm text-[#86868b] mt-1">Years in GRC</div>
-      </div>
-      <div class="bg-white p-8 sm:p-10 text-center">
-        <div class="text-3xl sm:text-4xl font-semibold tracking-tight">40%</div>
-        <div class="text-sm text-[#86868b] mt-1">Phishing resilience ↑</div>
-      </div>
-      <div class="bg-white p-8 sm:p-10 text-center">
-        <div class="text-3xl sm:text-4xl font-semibold tracking-tight">97%</div>
-        <div class="text-sm text-[#86868b] mt-1">Awareness participation</div>
-      </div>
-      <div class="bg-white p-8 sm:p-10 text-center">
-        <div class="text-3xl sm:text-4xl font-semibold tracking-tight">200+</div>
-        <div class="text-sm text-[#86868b] mt-1">Weekly TI feeds analyzed</div>
-      </div>
+      <div class="bg-white p-8 sm:p-10 text-center"><div class="text-3xl sm:text-4xl font-semibold tracking-tight">3+</div><div class="text-sm text-[#86868b] mt-1">Years in GRC</div></div>
+      <div class="bg-white p-8 sm:p-10 text-center"><div class="text-3xl sm:text-4xl font-semibold tracking-tight">40%</div><div class="text-sm text-[#86868b] mt-1">Phishing resilience ↑</div></div>
+      <div class="bg-white p-8 sm:p-10 text-center"><div class="text-3xl sm:text-4xl font-semibold tracking-tight">97%</div><div class="text-sm text-[#86868b] mt-1">Awareness participation</div></div>
+      <div class="bg-white p-8 sm:p-10 text-center"><div class="text-3xl sm:text-4xl font-semibold tracking-tight">200+</div><div class="text-sm text-[#86868b] mt-1">Weekly TI feeds analyzed</div></div>
     </div>
   </div>
 </section>
 
-<!-- About -->
 <section id="about" class="pb-24 sm:pb-32">
   <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
     <p class="section-label mb-12">About</p>
     <div class="grid md:grid-cols-3 gap-6">
-      <div class="card p-8">
-        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center mb-5">
-          <i data-lucide="shield-check" class="w-5 h-5 text-[#1d1d1f]"></i>
-        </div>
-        <h3 class="text-base font-semibold mb-2">Third-Party Risk</h3>
-        <p class="text-sm text-[#6e6e73] leading-relaxed">Vendor security assessments evaluating infrastructure, data protection, and compliance against ISO 27001, SOC 2, and PCI-DSS frameworks.</p>
-      </div>
-      <div class="card p-8">
-        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center mb-5">
-          <i data-lucide="users" class="w-5 h-5 text-[#1d1d1f]"></i>
-        </div>
-        <h3 class="text-base font-semibold mb-2">Security Awareness</h3>
-        <p class="text-sm text-[#6e6e73] leading-relaxed">Built enterprise-wide programs with KnowBe4 and Secure Code Warrior — 90% completion, 97% participation, 40% phishing resilience improvement.</p>
-      </div>
-      <div class="card p-8">
-        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center mb-5">
-          <i data-lucide="brain" class="w-5 h-5 text-[#1d1d1f]"></i>
-        </div>
-        <h3 class="text-base font-semibold mb-2">AI-Enhanced GRC</h3>
-        <p class="text-sm text-[#6e6e73] leading-relaxed">Automated regulatory gap analysis and vendor risk assessments with AI. Reduced help desk load 25% through AI chatbot development.</p>
-      </div>
+      <div class="card p-8"><div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center mb-5"><i data-lucide="shield-check" class="w-5 h-5 text-[#1d1d1f]"></i></div><h3 class="text-base font-semibold mb-2">Third-Party Risk</h3><p class="text-sm text-[#6e6e73] leading-relaxed">Vendor security assessments evaluating infrastructure, data protection, and compliance against ISO 27001, SOC 2, and PCI-DSS frameworks.</p></div>
+      <div class="card p-8"><div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center mb-5"><i data-lucide="users" class="w-5 h-5 text-[#1d1d1f]"></i></div><h3 class="text-base font-semibold mb-2">Security Awareness</h3><p class="text-sm text-[#6e6e73] leading-relaxed">Built enterprise-wide programs with KnowBe4 and Secure Code Warrior — 90% completion, 97% participation, 40% phishing resilience improvement.</p></div>
+      <div class="card p-8"><div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center mb-5"><i data-lucide="brain" class="w-5 h-5 text-[#1d1d1f]"></i></div><h3 class="text-base font-semibold mb-2">AI-Enhanced GRC</h3><p class="text-sm text-[#6e6e73] leading-relaxed">Automated regulatory gap analysis and vendor risk assessments with AI. Reduced help desk load 25% through AI chatbot development.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Experience -->
 <section id="experience" class="pb-24 sm:pb-32">
   <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
     <p class="section-label mb-12">Experience</p>
-    <div class="space-y-12">
-      <div class="experience-item">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">
-          <div>
-            <h3 class="text-xl font-semibold tracking-tight">Risk Analyst</h3>
-            <p class="text-[#6e6e73] text-sm font-medium">Grab · Petaling Jaya</p>
-          </div>
-          <span class="text-sm text-[#86868b] whitespace-nowrap">Dec 2025 – Present</span>
-        </div>
-        <ul class="space-y-2.5 text-[15px] text-[#424245] leading-relaxed">
-          <li>Conduct third-party security risk assessments evaluating vendor controls across infrastructure security, data protection, and compliance.</li>
-          <li>Perform due diligence reviews of vendor security documentation — ISMS policies, ISO 27001, SOC 2, PCI-DSS attestations.</li>
-          <li>Maintain vendor risk register and provide regular updates to management.</li>
-          <li>Develop and track remediation plans for identified findings, ensuring timely risk mitigation.</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">
-          <div>
-            <h3 class="text-xl font-semibold tracking-tight">Junior Security Analyst</h3>
-            <p class="text-[#6e6e73] text-sm font-medium">Deriv HQ · Cyberjaya</p>
-          </div>
-          <span class="text-sm text-[#86868b] whitespace-nowrap">Jan 2023 – Dec 2025</span>
-        </div>
-        <ul class="space-y-2.5 text-[15px] text-[#424245] leading-relaxed">
-          <li>Reviewed regulatory compliance (DORA, PCI-DSS) through policy reviews, gap analyses, and vendor risk assessments.</li>
-          <li>Spearheaded security awareness programs — KnowBe4 phishing simulations, Secure Code Warrior tournaments, Cybersecurity Awareness Month. Achieved 90% completion and 97% participation.</li>
-          <li>Co-led offsec campaigns (quishing, tailgating, deepfake, KYC fraud, USB drops), reducing attack surface by 30%.</li>
-          <li>Investigated security incidents, documented reports, and updated IR playbooks for SOC team.</li>
-          <li>Delivered Threat Map Model, quarterly PCI-DSS scans (Qualys), and DORA readiness assessments.</li>
-          <li>Gathered FAQs for AI-powered security chatbot, reducing help desk workload by 25%.</li>
-          <li>Applied AI tools to automate GRC processes; analyzed 200+ weekly threat intelligence feeds.</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">
-          <div>
-            <h3 class="text-xl font-semibold tracking-tight">BeSquare IT Graduate Programme</h3>
-            <p class="text-[#6e6e73] text-sm font-medium">Deriv HQ · Cyberjaya</p>
-          </div>
-          <span class="text-sm text-[#86868b] whitespace-nowrap">Jun 2022 – Dec 2022</span>
-        </div>
-        <ul class="space-y-2.5 text-[15px] text-[#424245] leading-relaxed">
-          <li>Completed 9-module programme spanning full-stack development, DevOps, cybersecurity, BI, and trading.</li>
-          <li>Developed full-stack web app as UI/UX designer, front-end developer, and security engineer — implemented input validation and password hashing.</li>
-        </ul>
-      </div>
-
-      <div class="experience-item">
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">
-          <div>
-            <h3 class="text-xl font-semibold tracking-tight">IT Project Management Intern</h3>
-            <p class="text-[#6e6e73] text-sm font-medium">Asian Supply Base · Labuan</p>
-          </div>
-          <span class="text-sm text-[#86868b] whitespace-nowrap">Mar 2021 – Jun 2021</span>
-        </div>
-        <ul class="space-y-2.5 text-[15px] text-[#424245] leading-relaxed">
-          <li>Partnered with IT, procurement, and project management to design network improvement plans.</li>
-          <li>Supported vendor meetings and stakeholder discussions for project initiatives.</li>
-        </ul>
-      </div>
-    </div>
+    <div class="space-y-12" id="experience-list"></div>
   </div>
 </section>
 
-<!-- Education -->
 <section class="pb-24 sm:pb-32">
   <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
     <p class="section-label mb-12">Education</p>
     <div class="experience-item">
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
-        <div>
-          <h3 class="text-xl font-semibold tracking-tight">BSc (Hons) Cybersecurity</h3>
-          <p class="text-[#6e6e73] text-sm font-medium">Asia Pacific Institute of Technology (APIIT)</p>
-        </div>
-        <div class="flex items-center gap-3">
-          <span class="text-sm text-[#86868b]">May 2019 – Apr 2022</span>
-          <span class="text-sm font-semibold">CGPA 3.7</span>
-        </div>
+        <div><h3 class="text-xl font-semibold tracking-tight">BSc (Hons) Cybersecurity</h3><p class="text-[#6e6e73] text-sm font-medium">Asia Pacific Institute of Technology (APIIT)</p></div>
+        <div class="flex items-center gap-3"><span class="text-sm text-[#86868b]">May 2019 – Apr 2022</span><span class="text-sm font-semibold">CGPA 3.7</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Skills -->
 <section id="skills" class="pb-24 sm:pb-32">
   <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
     <p class="section-label mb-12">Skills & Tools</p>
     <div class="space-y-10">
-      <div>
-        <h3 class="text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-4">Core Competencies</h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="tag">Third-Party Vendor Risk Assessment</span>
-          <span class="tag">Gap Analysis</span>
-          <span class="tag">Security Awareness Programs</span>
-          <span class="tag">Incident Playbooks & Reporting</span>
-          <span class="tag">Threat Intelligence Analysis</span>
-          <span class="tag">DORA Compliance</span>
-          <span class="tag">PCI-DSS</span>
-          <span class="tag">Basic AI Prompting</span>
-        </div>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-4">GRC & Risk</h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="tag">MetricStreams</span>
-          <span class="tag">UpGuard</span>
-          <span class="tag">Qualys</span>
-          <span class="tag">KnowBe4</span>
-          <span class="tag">JIRA</span>
-          <span class="tag">ClickUp</span>
-        </div>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-4">Security & Infrastructure</h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="tag">CrowdStrike</span>
-          <span class="tag">BurpSuite</span>
-          <span class="tag">Wireshark</span>
-          <span class="tag">Nmap</span>
-          <span class="tag">CATO</span>
-          <span class="tag">NordLayer</span>
-          <span class="tag">FortiManager</span>
-          <span class="tag">Linux</span>
-        </div>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-4">MDM & Endpoint</h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="tag">Kandji</span>
-          <span class="tag">JumpCloud</span>
-          <span class="tag">JamF</span>
-          <span class="tag">Microsoft 365</span>
-          <span class="tag">Google Workspace</span>
-        </div>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-4">AI & Automation</h3>
-        <div class="flex flex-wrap gap-2">
-          <span class="tag">Google Gemini</span>
-          <span class="tag">n8n</span>
-        </div>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-4">Practical Platforms</h3>
-        <div class="flex flex-wrap gap-2">
-          <a href="https://tryhackme.com/p/honeydonkey" target="_blank" rel="noopener noreferrer" class="tag inline-flex items-center gap-2 hover:!bg-[#1d1d1f] hover:!text-white">
-            TryHackMe
-            <i data-lucide="arrow-up-right" class="w-3 h-3 opacity-50"></i>
-          </a>
-          <a href="https://profile.hackthebox.com/profile/019e0311-f857-703a-a1aa-b18288684ab7" target="_blank" rel="noopener noreferrer" class="tag inline-flex items-center gap-2 hover:!bg-[#1d1d1f] hover:!text-white">
-            Hack The Box
-            <i data-lucide="arrow-up-right" class="w-3 h-3 opacity-50"></i>
-          </a>
-        </div>
-      </div>
+      <div><h3 class="text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-4">Core Competencies</h3><div class="flex flex-wrap gap-2"><span class="tag">Third-Party Vendor Risk Assessment</span><span class="tag">Gap Analysis</span><span class="tag">Security Awareness Programs</span><span class="tag">Incident Playbooks & Reporting</span><span class="tag">Threat Intelligence Analysis</span><span class="tag">DORA Compliance</span><span class="tag">PCI-DSS</span><span class="tag">Basic AI Prompting</span></div></div>
+      <div><h3 class="text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-4">GRC & Risk</h3><div class="flex flex-wrap gap-2"><span class="tag">MetricStreams</span><span class="tag">UpGuard</span><span class="tag">Qualys</span><span class="tag">KnowBe4</span><span class="tag">JIRA</span><span class="tag">ClickUp</span></div></div>
+      <div><h3 class="text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-4">Security & Infrastructure</h3><div class="flex flex-wrap gap-2"><span class="tag">CrowdStrike</span><span class="tag">BurpSuite</span><span class="tag">Wireshark</span><span class="tag">Nmap</span><span class="tag">CATO</span><span class="tag">NordLayer</span><span class="tag">FortiManager</span><span class="tag">Linux</span></div></div>
+      <div><h3 class="text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-4">MDM & Endpoint</h3><div class="flex flex-wrap gap-2"><span class="tag">Kandji</span><span class="tag">JumpCloud</span><span class="tag">JamF</span><span class="tag">Microsoft 365</span><span class="tag">Google Workspace</span></div></div>
+      <div><h3 class="text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-4">AI & Automation</h3><div class="flex flex-wrap gap-2"><span class="tag">Google Gemini</span><span class="tag">n8n</span></div></div>
+      <div><h3 class="text-sm font-semibold text-[#86868b] uppercase tracking-wider mb-4">Practical Platforms</h3><div class="flex flex-wrap gap-2">
+        <a href="https://tryhackme.com/p/honeydonkey" target="_blank" rel="noopener noreferrer" class="tag inline-flex items-center gap-2 hover:!bg-[#1d1d1f] hover:!text-white">TryHackMe <i data-lucide="arrow-up-right" class="w-3 h-3 opacity-50"></i></a>
+        <a href="https://profile.hackthebox.com/profile/019e0311-f857-703a-a1aa-b18288684ab7" target="_blank" rel="noopener noreferrer" class="tag inline-flex items-center gap-2 hover:!bg-[#1d1d1f] hover:!text-white">Hack The Box <i data-lucide="arrow-up-right" class="w-3 h-3 opacity-50"></i></a>
+      </div></div>
     </div>
   </div>
 </section>
 
-<!-- Certification -->
 <section class="pb-24 sm:pb-32">
   <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
     <p class="section-label mb-12">Certification</p>
     <div class="card p-8 sm:p-10 max-w-lg">
       <div class="flex items-start gap-5">
-        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center flex-shrink-0">
-          <i data-lucide="badge-check" class="w-6 h-6 text-[#1d1d1f]"></i>
-        </div>
-        <div>
-          <h3 class="text-lg font-semibold tracking-tight">CompTIA Security+</h3>
-          <p class="text-sm text-[#86868b] mt-0.5">Valid through February 2029</p>
-          <a href="https://www.credly.com/badges/c6a9aee8-dd04-4905-b3b9-e39ab2134414/public_url" target="_blank" rel="noopener noreferrer" class="verify-link mt-3 inline-flex">
-            Verify
-            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-          </a>
-        </div>
+        <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center flex-shrink-0"><i data-lucide="badge-check" class="w-6 h-6 text-[#1d1d1f]"></i></div>
+        <div><h3 class="text-lg font-semibold tracking-tight">CompTIA Security+</h3><p class="text-sm text-[#86868b] mt-0.5">Valid through February 2029</p><a href="https://www.credly.com/badges/c6a9aee8-dd04-4905-b3b9-e39ab2134414/public_url" target="_blank" rel="noopener noreferrer" class="verify-link mt-3 inline-flex">Verify <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></a></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTF & Extracurricular -->
 <section id="activities" class="pb-24 sm:pb-32">
   <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
-    <p class="section-label mb-12">CTF & Extracurricular</p>
-    <div class="grid sm:grid-cols-2 gap-6">
-      <a href="https://drive.google.com/file/d/1-GFO9SalKL8FN1ETDzBRgPDv2iGJ3lJv/view" target="_blank" rel="noopener noreferrer" class="card-link">
-        <div class="card p-8">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-base font-semibold tracking-tight">Global Cyber Skills Benchmark CTF</h3>
-            <span class="text-xs font-semibold text-[#86868b]">2025</span>
-          </div>
-          <p class="text-sm text-[#6e6e73] mb-5">Operation Blackout</p>
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-sm text-[#86868b]">Ranked 57th</span>
-            <span class="text-sm font-medium font-mono">57 / 796</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width:92.8%"></div></div>
-          <div class="mt-4 flex items-center gap-1.5 text-xs text-[#86868b]">
-            <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
-            View evidence
-          </div>
-        </div>
-      </a>
-
-      <a href="https://drive.google.com/file/d/1FCblOIgXGqrGZmxy2dRg-rmIWYtM1dzQ/view" target="_blank" rel="noopener noreferrer" class="card-link">
-        <div class="card p-8">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-base font-semibold tracking-tight">Girls in CTF</h3>
-            <span class="text-xs font-semibold text-[#86868b]">2024</span>
-          </div>
-          <p class="text-sm text-[#6e6e73] mb-5">Women in cybersecurity competition</p>
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-sm text-[#86868b]">Ranked 65th</span>
-            <span class="text-sm font-medium font-mono">65 / 80</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width:81.3%"></div></div>
-          <div class="mt-4 flex items-center gap-1.5 text-xs text-[#86868b]">
-            <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
-            View evidence
-          </div>
-        </div>
-      </a>
-
-      <a href="https://drive.google.com/file/d/1Ifr1TRc1RqVrjvesGCW9I9kqzLFvrsDl/view" target="_blank" rel="noopener noreferrer" class="card-link">
-        <div class="card p-8">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-base font-semibold tracking-tight">Wiz AI Security Challenge</h3>
-            <span class="text-xs font-semibold text-[#86868b]">2025</span>
-          </div>
-          <p class="text-sm text-[#6e6e73] mb-5">Completed AI prompt injection activities</p>
-          <div class="flex items-center gap-2 mt-2">
-            <i data-lucide="check" class="w-4 h-4 text-[#1d1d1f]"></i>
-            <span class="text-sm font-medium">All challenges completed</span>
-          </div>
-          <div class="mt-4 flex items-center gap-1.5 text-xs text-[#86868b]">
-            <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
-            View evidence
-          </div>
-        </div>
-      </a>
-
-      <a href="https://drive.google.com/file/d/1CSoBVBAM9bbdvSvjrvw-ltpjG8uDI-P2/view" target="_blank" rel="noopener noreferrer" class="card-link">
-        <div class="card p-8">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-base font-semibold tracking-tight">Kaspersky{CTF}</h3>
-            <span class="text-xs font-semibold text-[#86868b]">2025</span>
-          </div>
-          <p class="text-sm text-[#6e6e73] mb-5">Global CTF competition</p>
-          <div class="flex items-center gap-2 mt-2">
-            <i data-lucide="globe" class="w-4 h-4 text-[#86868b]"></i>
-            <span class="text-sm text-[#6e6e73]">Participant</span>
-          </div>
-          <div class="mt-4 flex items-center gap-1.5 text-xs text-[#86868b]">
-            <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
-            View evidence
-          </div>
-        </div>
-      </a>
+    <div class="flex items-center justify-between mb-12">
+      <p class="section-label mb-0">CTF & Extracurricular</p>
+      <button class="btn-text" onclick="goActivities()">View all <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
     </div>
+    <div class="grid sm:grid-cols-2 gap-6" id="activity-preview"></div>
   </div>
 </section>
 
-<!-- Languages -->
 <section class="pb-24 sm:pb-32">
   <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
     <p class="section-label mb-12">Languages</p>
     <div class="grid grid-cols-3 gap-6 max-w-md">
-      <div>
-        <p class="text-sm font-semibold mb-3">English</p>
-        <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
-        <p class="text-xs text-[#86868b] mt-1.5">Native</p>
-      </div>
-      <div>
-        <p class="text-sm font-semibold mb-3">Malay</p>
-        <div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div>
-        <p class="text-xs text-[#86868b] mt-1.5">Fluent</p>
-      </div>
-      <div>
-        <p class="text-sm font-semibold mb-3">Mandarin</p>
-        <div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div>
-        <p class="text-xs text-[#86868b] mt-1.5">Conversational</p>
-      </div>
+      <div><p class="text-sm font-semibold mb-3">English</p><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div><p class="text-xs text-[#86868b] mt-1.5">Native</p></div>
+      <div><p class="text-sm font-semibold mb-3">Malay</p><div class="progress-bar"><div class="progress-fill" style="width:85%"></div></div><p class="text-xs text-[#86868b] mt-1.5">Fluent</p></div>
+      <div><p class="text-sm font-semibold mb-3">Mandarin</p><div class="progress-bar"><div class="progress-fill" style="width:40%"></div></div><p class="text-xs text-[#86868b] mt-1.5">Conversational</p></div>
     </div>
   </div>
 </section>
 
-<!-- Download CTA -->
 <section id="download" class="pb-24 sm:pb-32">
   <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
     <div class="bg-[#1d1d1f] rounded-[24px] p-8 sm:p-16 text-center">
       <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white mb-4">Get my full resume</h2>
       <p class="text-[#86868b] text-lg max-w-lg mx-auto mb-10">Available with a 60-day notice period. Let's discuss how I can contribute to your security team.</p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-        <a href="https://flowcv.com/resume/2mofja4dwmne" target="_blank" rel="noopener noreferrer" class="btn-light">
-          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-          View Resume
-        </a>
-        <a href="mailto:marianne_wong@protonmail.com" class="btn-ghost-dark">
-          <i data-lucide="mail" class="w-4 h-4"></i>
-          marianne_wong@protonmail.com
-        </a>
+        <a href="https://flowcv.com/resume/2mofja4dwmne" target="_blank" rel="noopener noreferrer" class="btn-light"><i data-lucide="arrow-up-right" class="w-4 h-4"></i> View Resume</a>
+        <a href="mailto:marianne_wong@protonmail.com" class="btn-ghost-dark"><i data-lucide="mail" class="w-4 h-4"></i> marianne_wong@protonmail.com</a>
       </div>
       <div class="border-t border-[#424245] pt-10 mt-2">
         <p class="text-[#6e6e73] text-sm mb-5">Need an ATS-optimized version for job applications?</p>
-        <button id="ats-btn" class="btn-ats">
-          <i data-lucide="file-text" class="w-4 h-4"></i>
-          <span>Download ATS Resume (PDF)</span>
-        </button>
-        <p class="text-[#424245] text-xs mt-4 max-w-sm mx-auto leading-relaxed">
-          Opens in a new tab for preview. Use your browser's "Save as PDF" to download a text-selectable PDF that passes ATS parsers.
-        </p>
+        <button id="ats-btn" class="btn-ats"><i data-lucide="file-text" class="w-4 h-4"></i><span>Download ATS Resume (PDF)</span></button>
+        <p class="text-[#424245] text-xs mt-4 max-w-sm mx-auto leading-relaxed">Opens in a new tab for preview. Use your browser's "Save as PDF" to download a text-selectable PDF that passes ATS parsers.</p>
       </div>
       <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[#6e6e73] mt-10">
-        <a href="https://linkedin.com/in/mwhm" target="_blank" rel="noopener" class="hover:text-white transition-colors inline-flex items-center gap-1.5">
-          <i data-lucide="linkedin" class="w-3.5 h-3.5"></i>
-          linkedin.com/in/mwhm
-        </a>
+        <a href="https://linkedin.com/in/mwhm" target="_blank" rel="noopener" class="hover:text-white transition-colors inline-flex items-center gap-1.5"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i> linkedin.com/in/mwhm</a>
         <span class="hidden sm:inline text-[#424245]">·</span>
         <span>+6019-234-5442</span>
         <span class="hidden sm:inline text-[#424245]">·</span>
-        <a href="https://mwhm101.vercel.app" target="_blank" rel="noopener" class="hover:text-white transition-colors inline-flex items-center gap-1.5">
-          <i data-lucide="globe" class="w-3.5 h-3.5"></i>
-          mwhm101.vercel.app
-        </a>
+        <a href="https://mwhm101.vercel.app" target="_blank" rel="noopener" class="hover:text-white transition-colors inline-flex items-center gap-1.5"><i data-lucide="globe" class="w-3.5 h-3.5"></i> mwhm101.vercel.app</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
 <footer class="pb-8">
   <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
     <div class="border-t border-[#e5e5ea] pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
       <p class="text-xs text-[#86868b]">© 2025 Marianne Wong</p>
       <div class="flex items-center gap-4">
-        <a href="https://linkedin.com/in/mwhm" target="_blank" rel="noopener" class="text-[#86868b] hover:text-[#1d1d1f] transition-colors">
-          <i data-lucide="linkedin" class="w-4 h-4"></i>
-        </a>
-        <a href="mailto:marianne_wong@protonmail.com" class="text-[#86868b] hover:text-[#1d1d1f] transition-colors">
-          <i data-lucide="mail" class="w-4 h-4"></i>
-        </a>
+        <a href="https://linkedin.com/in/mwhm" target="_blank" rel="noopener" class="text-[#86868b] hover:text-[#1d1d1f] transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+        <a href="mailto:marianne_wong@protonmail.com" class="text-[#86868b] hover:text-[#1d1d1f] transition-colors"><i data-lucide="mail" class="w-4 h-4"></i></a>
       </div>
     </div>
   </div>
 </footer>
 
+</div><!-- /main-page -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<!-- SUB-PAGE: All Activities & Certificates                          -->
+<!-- ═══════════════════════════════════════════════════════════════════ -->
+<div id="sub-page">
+  <nav class="sub-nav">
+    <div class="max-w-[1080px] mx-auto px-6 lg:px-8 h-12 flex items-center justify-between">
+      <button class="btn-text" onclick="goHome()"><i data-lucide="arrow-left" class="w-4 h-4"></i> Back to portfolio</button>
+      <span class="text-sm font-semibold tracking-tight">Activities & Certificates</span>
+      <div style="width:120px"></div>
+    </div>
+  </nav>
+
+  <section class="pt-24 pb-8 sm:pt-28">
+    <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
+      <h1 class="text-[36px] sm:text-[48px] font-semibold leading-[1.1] tracking-tight mb-4">Activities & Certificates</h1>
+      <p class="text-lg text-[#6e6e73] leading-relaxed max-w-2xl">
+        CTF competitions, challenges, and certificates — continuously pushing to learn more and go deeper into cybersecurity.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-24 sm:pb-32">
+    <div class="max-w-[720px] mx-auto px-6 lg:px-8">
+      <div id="activity-full-list"></div>
+    </div>
+  </section>
+
+  <footer class="pb-8">
+    <div class="max-w-[1080px] mx-auto px-6 lg:px-8">
+      <div class="border-t border-[#e5e5ea] pt-8 text-center">
+        <p class="text-xs text-[#86868b]">© 2025 Marianne Wong</p>
+      </div>
+    </div>
+  </footer>
+</div><!-- /sub-page -->
+
+
 <script>
+// ═══════════════════════════════════════════════════════════════════════
+// 📝 DATA
+// ═══════════════════════════════════════════════════════════════════════
+
+var experiences = [
+  {
+    title: "Risk Analyst",
+    company: "Grab",
+    location: "Petaling Jaya",
+    dateDisplay: "Dec 2025 – Present",
+    sortDate: "2025-12",
+    bullets: [
+      "Conduct third-party security risk assessments evaluating vendor controls across infrastructure security, data protection, and compliance.",
+      "Perform due diligence reviews of vendor security documentation — ISMS policies, ISO 27001, SOC 2, PCI-DSS attestations.",
+      "Maintain vendor risk register and provide regular updates to management.",
+      "Develop and track remediation plans for identified findings, ensuring timely risk mitigation."
+    ]
+  },
+  {
+    title: "Junior Security Analyst",
+    company: "Deriv HQ",
+    location: "Cyberjaya",
+    dateDisplay: "Jan 2023 – Dec 2025",
+    sortDate: "2023-01",
+    bullets: [
+      "Reviewed regulatory compliance (DORA, PCI-DSS) through policy reviews, gap analyses, and vendor risk assessments.",
+      "Spearheaded security awareness programs — KnowBe4 phishing simulations, Secure Code Warrior tournaments, Cybersecurity Awareness Month. Achieved 90% completion and 97% participation.",
+      "Co-led offsec campaigns (quishing, tailgating, deepfake, KYC fraud, USB drops), reducing attack surface by 30%.",
+      "Investigated security incidents, documented reports, and updated IR playbooks for SOC team.",
+      "Delivered Threat Map Model, quarterly PCI-DSS scans (Qualys), and DORA readiness assessments.",
+      "Gathered FAQs for AI-powered security chatbot, reducing help desk workload by 25%.",
+      "Applied AI tools to automate GRC processes; analyzed 200+ weekly threat intelligence feeds."
+    ]
+  },
+  {
+    title: "BeSquare IT Graduate Programme",
+    company: "Deriv HQ",
+    location: "Cyberjaya",
+    dateDisplay: "Jun 2022 – Dec 2022",
+    sortDate: "2022-06",
+    bullets: [
+      "Completed 9-module programme spanning full-stack development, DevOps, cybersecurity, BI, and trading.",
+      "Developed full-stack web app as UI/UX designer, front-end developer, and security engineer — implemented input validation and password hashing."
+    ]
+  },
+  {
+    title: "IT Project Management Intern",
+    company: "Asian Supply Base",
+    location: "Labuan",
+    dateDisplay: "Mar 2021 – Jun 2021",
+    sortDate: "2021-03",
+    bullets: [
+      "Partnered with IT, procurement, and project management to design network improvement plans.",
+      "Supported vendor meetings and stakeholder discussions for project initiatives."
+    ]
+  }
+  // ── ✏️ ADD NEW EXPERIENCE HERE ──────────────────────────────────
+];
+
+var activities = [
+  {
+    title: "Liga CTF 2026",
+    year: "2026",
+    description: "Certificate of Participation — OWASP Kuala Lumpur Chapter (May 22 – Jul 5)",
+    category: "ctf",
+    displayType: "participant",
+    rank: null,
+    total: null,
+    link: "https://drive.google.com/file/d/1dWCL2MuOevAb9NDF0JuJZ1N8TJGmrXhX/view?usp=sharing",
+    content: ""
+  },
+  {
+    title: "Global Cyber Skills Benchmark CTF",
+    year: "2025",
+    description: "Operation Blackout",
+    category: "ctf",
+    displayType: "ranked",
+    rank: 57,
+    total: 796,
+    link: "https://drive.google.com/file/d/1-GFO9SalKL8FN1ETDzBRgPDv2iGJ3lJv/view",
+    content: ""
+  },
+  {
+    title: "Wiz AI Security Challenge",
+    year: "2025",
+    description: "Completed AI prompt injection activities",
+    category: "ctf",
+    displayType: "completed",
+    rank: null,
+    total: null,
+    link: "https://drive.google.com/file/d/1Ifr1TRc1RqVrjvesGCW9I9kqzLFvrsDl/view",
+    content: ""
+  },
+  {
+    title: "Kaspersky{CTF}",
+    year: "2025",
+    description: "Global CTF competition",
+    category: "ctf",
+    displayType: "participant",
+    rank: null,
+    total: null,
+    link: "https://drive.google.com/file/d/1CSoBVBAM9bbdvSvjrvw-ltpjG8uDI-P2/view",
+    content: ""
+  },
+  {
+    title: "Girls in CTF",
+    year: "2024",
+    description: "Women in cybersecurity competition",
+    category: "ctf",
+    displayType: "ranked",
+    rank: 65,
+    total: 80,
+    link: "https://drive.google.com/file/d/1FCblOIgXGqrGZmxy2dRg-rmIWYtM1dzQ/view",
+    content: ""
+  }
+  // ── ✏️ ADD NEW CTF / CERTIFICATE / ACTIVITY HERE ────────────────
+];
+
+
+// ═══════════════════════════════════════════════════════════════════════
+// 🎨 RENDER
+// ═══════════════════════════════════════════════════════════════════════
+
+function getOrdinal(n) {
+  var s = ['th','st','nd','rd'];
+  var v = n % 100;
+  return s[(v-20)%10] || s[v] || s[0];
+}
+
+function renderExperienceItem(exp) {
+  var b = exp.bullets && exp.bullets.length
+    ? '<ul class="space-y-2.5 text-[15px] text-[#424245] leading-relaxed">' + exp.bullets.map(function(b){ return '<li>'+b+'</li>'; }).join('') + '</ul>'
+    : '';
+  return '<div class="experience-item">' +
+    '<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-3">' +
+      '<div><h3 class="text-xl font-semibold tracking-tight">'+exp.title+'</h3><p class="text-[#6e6e73] text-sm font-medium">'+exp.company+' · '+exp.location+'</p></div>' +
+      '<span class="text-sm text-[#86868b] whitespace-nowrap">'+exp.dateDisplay+'</span>' +
+    '</div>' + b + '</div>';
+}
+
+function renderExperiences() {
+  var c = document.getElementById('experience-list');
+  if (!c) return;
+  c.innerHTML = experiences.slice().sort(function(a,b){ return (b.sortDate||'').localeCompare(a.sortDate||''); }).map(renderExperienceItem).join('');
+}
+
+function buildStatsHtml(a) {
+  if (a.displayType === 'ranked' && a.rank && a.total) {
+    var pct = (100 - (a.rank / a.total * 100)).toFixed(1);
+    return '<div class="act-card-stats"><div class="flex items-center justify-between mb-1.5"><span class="text-xs text-[#86868b]">Ranked '+a.rank+getOrdinal(a.rank)+'</span><span class="text-xs font-medium font-mono">'+a.rank+' / '+a.total+'</span></div><div class="progress-bar"><div class="progress-fill" style="width:'+pct+'%"></div></div></div>';
+  }
+  if (a.displayType === 'completed') return '<div class="act-card-stats flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-[#1d1d1f]"></i><span class="text-sm font-medium">All challenges completed</span></div>';
+  if (a.displayType === 'participant') return '<div class="act-card-stats flex items-center gap-2"><i data-lucide="globe" class="w-3.5 h-3.5 text-[#86868b]"></i><span class="text-sm text-[#6e6e73]">Participant</span></div>';
+  if (a.displayType === 'certificate') return '<div class="act-card-stats flex items-center gap-2"><i data-lucide="badge-check" class="w-3.5 h-3.5 text-[#1d1d1f]"></i><span class="text-sm font-medium">Certificate earned</span></div>';
+  return '';
+}
+
+// ── Main page: compact grid (top 4) ──
+
+function renderPreviewCard(a) {
+  var s = buildStatsHtml(a);
+  var e = a.link ? '<div class="mt-4 flex items-center gap-1.5 text-xs text-[#86868b]"><i data-lucide="arrow-up-right" class="w-3 h-3"></i>View evidence</div>' : '';
+  var inner = '<div class="card p-8"><div class="flex items-center justify-between mb-4"><h3 class="text-base font-semibold tracking-tight">'+a.title+'</h3><span class="text-xs font-semibold text-[#86868b] whitespace-nowrap ml-3">'+a.year+'</span></div><p class="text-sm text-[#6e6e73] mb-5">'+a.description+'</p>'+s+e+'</div>';
+  return a.link ? '<a href="'+a.link+'" target="_blank" rel="noopener noreferrer" class="card-link">'+inner+'</a>' : inner;
+}
+
+function renderActivityPreview() {
+  var c = document.getElementById('activity-preview');
+  if (!c) return;
+  var sorted = activities.slice().sort(function(a,b){ return (b.year||'').localeCompare(a.year||''); });
+  c.innerHTML = sorted.slice(0, 4).map(renderPreviewCard).join('');
   lucide.createIcons();
+}
 
-  var nav = document.getElementById('nav');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 20) {
-      nav.style.background = 'rgba(255,255,255,0.82)';
-      nav.style.backdropFilter = 'blur(20px)';
-      nav.style.webkitBackdropFilter = 'blur(20px)';
-      nav.style.borderBottom = '1px solid #e5e5ea';
-    } else {
-      nav.style.background = 'transparent';
-      nav.style.backdropFilter = 'none';
-      nav.style.webkitBackdropFilter = 'none';
-      nav.style.borderBottom = '1px solid transparent';
-    }
+// ── Sub-page: clean year-grouped list ──
+
+function renderActivityFullList() {
+  var c = document.getElementById('activity-full-list');
+  if (!c) return;
+
+  var sorted = activities.slice().sort(function(a,b){ return (b.year||'').localeCompare(a.year||''); });
+
+  // Group by year
+  var groups = {};
+  sorted.forEach(function(a) {
+    var y = a.year || 'Unknown';
+    if (!groups[y]) groups[y] = [];
+    groups[y].push(a);
   });
 
-  var menuBtn = document.getElementById('menu-btn');
-  var menu = document.getElementById('menu');
-  menuBtn.addEventListener('click', function() { menu.classList.toggle('hidden'); });
-  var menuLinks = document.querySelectorAll('.menu-link');
-  for (var i = 0; i < menuLinks.length; i++) {
-    menuLinks[i].addEventListener('click', function() { menu.classList.add('hidden'); });
+  var html = '';
+  Object.keys(groups).sort().reverse().forEach(function(year) {
+    html += '<div class="act-year-group">';
+    html += '  <div class="act-year">' + year + '</div>';
+    html += '  <div class="act-entries">';
+
+    groups[year].forEach(function(a) {
+      var catLabel = a.category === 'ctf' ? 'CTF' : a.category === 'certificate' ? 'Certificate' : 'Activity';
+      var catClass = 'cat-' + a.category;
+      var stats = buildStatsHtml(a);
+      var evidence = a.link
+        ? '<a href="'+a.link+'" target="_blank" rel="noopener noreferrer" class="act-card-evidence"><i data-lucide="external-link" class="w-3.5 h-3.5"></i>View evidence</a>'
+        : '';
+
+      html += '<div class="act-card">';
+      html += '  <span class="cat-badge '+catClass+'">'+catLabel+'</span>';
+      html += '  <h3 class="text-[15px] font-semibold tracking-tight mt-2">'+a.title+'</h3>';
+      html += '  <p class="text-sm text-[#6e6e73] mt-1">'+a.description+'</p>';
+      html += '  '+stats;
+      html += '  '+evidence;
+      html += '</div>';
+    });
+
+    html += '  </div>';
+    html += '</div>';
+  });
+
+  c.innerHTML = html;
+  lucide.createIcons();
+}
+
+
+// ═══════════════════════════════════════════════════════════════════════
+// 🧭 ROUTING
+// ═══════════════════════════════════════════════════════════════════════
+
+function goActivities() {
+  document.getElementById('main-page').classList.add('hidden');
+  document.getElementById('sub-page').classList.add('active');
+  window.location.hash = 'activities';
+  window.scrollTo(0, 0);
+  renderActivityFullList();
+}
+
+function goHome() {
+  document.getElementById('sub-page').classList.remove('active');
+  document.getElementById('main-page').classList.remove('hidden');
+  window.location.hash = '';
+  window.scrollTo(0, 0);
+}
+
+function handleRoute() {
+  if (window.location.hash === '#activities') {
+    document.getElementById('main-page').classList.add('hidden');
+    document.getElementById('sub-page').classList.add('active');
+    renderActivityFullList();
+  } else {
+    document.getElementById('sub-page').classList.remove('active');
+    document.getElementById('main-page').classList.remove('hidden');
   }
+}
 
-  var sections = document.querySelectorAll('section[id]');
-  var navLinks = document.querySelectorAll('.nav-link');
-  window.addEventListener('scroll', function() {
-    var current = '';
-    for (var i = 0; i < sections.length; i++) {
-      if (window.scrollY >= sections[i].offsetTop - 120) current = sections[i].id;
-    }
-    for (var j = 0; j < navLinks.length; j++) {
-      if (navLinks[j].getAttribute('href') === '#' + current) {
-        navLinks[j].classList.add('active');
-      } else {
-        navLinks[j].classList.remove('active');
-      }
-    }
+window.addEventListener('hashchange', handleRoute);
+window.addEventListener('DOMContentLoaded', handleRoute);
+
+
+// ═══════════════════════════════════════════════════════════════════════
+// ✏️ EDIT MODE
+// ═══════════════════════════════════════════════════════════════════════
+
+var editMode = false;
+var currentModalTab = 'experience';
+
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) { e.preventDefault(); toggleEditMode(); }
+  if (e.key === 'Escape' && editMode) closeModal();
+});
+
+function toggleEditMode() {
+  editMode = !editMode;
+  document.getElementById('edit-banner').classList.toggle('visible', editMode);
+  document.getElementById('fab-btn').classList.toggle('visible', editMode);
+  document.getElementById('nav').style.top = editMode ? '36px' : '0';
+  showToast(editMode ? 'Edit mode on — click + to add entries' : 'Edit mode off');
+}
+
+document.getElementById('fab-btn').addEventListener('click', openModal);
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal-backdrop').addEventListener('click', closeModal);
+
+function openModal() {
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  updatePreview();
+  lucide.createIcons();
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.modal-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    currentModalTab = this.dataset.tab;
+    document.querySelectorAll('.modal-tab').forEach(function(t) { t.classList.remove('active'); });
+    this.classList.add('active');
+    document.querySelectorAll('.tab-content').forEach(function(c) { c.style.display = 'none'; });
+    document.getElementById('tab-' + currentModalTab).style.display = 'block';
+    updateRankFields();
+    updatePreview();
   });
+});
 
-  function showToast(msg, duration) {
-    var toast = document.getElementById('toast');
-    var toastMsg = document.getElementById('toast-msg');
-    toastMsg.textContent = msg;
-    toast.classList.add('show');
-    setTimeout(function() { toast.classList.remove('show'); }, duration || 3000);
+function updateRankFields() {
+  document.getElementById('rank-fields').style.display = document.getElementById('act-type').value === 'ranked' ? 'grid' : 'none';
+}
+document.getElementById('act-type').addEventListener('change', function() { updateRankFields(); updatePreview(); });
+
+document.querySelectorAll('#tab-experience .form-input, #tab-activity .form-input').forEach(function(input) {
+  input.addEventListener('input', updatePreview);
+  input.addEventListener('change', updatePreview);
+});
+
+function buildExperienceFromForm() {
+  return {
+    title: document.getElementById('exp-title').value || 'Job Title',
+    company: document.getElementById('exp-company').value || 'Company',
+    location: document.getElementById('exp-location').value || 'Location',
+    dateDisplay: (document.getElementById('exp-start').value||'Start') + ' – ' + (document.getElementById('exp-end').value||'Present'),
+    sortDate: document.getElementById('exp-sort').value || '2025-01',
+    bullets: document.getElementById('exp-bullets').value.split('\n').filter(function(b){ return b.trim(); })
+  };
+}
+
+function buildActivityFromForm() {
+  var type = document.getElementById('act-type').value;
+  return {
+    title: document.getElementById('act-title').value || 'Title',
+    year: document.getElementById('act-year').value || new Date().getFullYear().toString(),
+    description: document.getElementById('act-desc').value || 'Description',
+    category: document.getElementById('act-category').value,
+    displayType: type,
+    rank: type === 'ranked' ? parseInt(document.getElementById('act-rank').value) || 0 : null,
+    total: type === 'ranked' ? parseInt(document.getElementById('act-total').value) || 0 : null,
+    link: document.getElementById('act-link').value || '',
+    content: document.getElementById('act-content').value || ''
+  };
+}
+
+function updatePreview() {
+  var p = document.getElementById('modal-preview');
+  if (!p) return;
+  p.innerHTML = currentModalTab === 'experience' ? renderExperienceItem(buildExperienceFromForm()) : renderPreviewCard(buildActivityFromForm());
+  lucide.createIcons();
+}
+
+document.getElementById('copy-json-btn').addEventListener('click', function() {
+  var obj = currentModalTab === 'experience' ? buildExperienceFromForm() : buildActivityFromForm();
+  var name = currentModalTab === 'experience' ? 'experiences' : 'activities';
+  var json = JSON.stringify(obj, null, 2);
+  navigator.clipboard.writeText(json).then(function() {
+    showToast('Copied! Paste into the "' + name + '" array.');
+  }).catch(function() {
+    var ta = document.createElement('textarea'); ta.value = json;
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+    showToast('Copied! Paste into the "' + name + '" array.');
+  });
+});
+
+
+// ═══════════════════════════════════════════════════════════════════════
+// ⚙️ SITE
+// ═══════════════════════════════════════════════════════════════════════
+
+lucide.createIcons();
+renderExperiences();
+renderActivityPreview();
+
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 20) {
+    nav.style.background = 'rgba(255,255,255,0.82)';
+    nav.style.backdropFilter = 'blur(20px)';
+    nav.style.webkitBackdropFilter = 'blur(20px)';
+    nav.style.borderBottom = '1px solid #e5e5ea';
+  } else {
+    nav.style.background = 'transparent';
+    nav.style.backdropFilter = 'none';
+    nav.style.webkitBackdropFilter = 'none';
+    nav.style.borderBottom = '1px solid transparent';
   }
+});
 
-  document.getElementById('ats-btn').addEventListener('click', function() {
-    var template = document.getElementById('ats-template');
-    var html = template.textContent || template.innerText;
-    var newTab = window.open('', '_blank');
+var menuBtn = document.getElementById('menu-btn');
+var menu = document.getElementById('menu');
+menuBtn.addEventListener('click', function() { menu.classList.toggle('hidden'); });
+document.querySelectorAll('.menu-link').forEach(function(link) { link.addEventListener('click', function() { menu.classList.add('hidden'); }); });
 
-    if (!newTab) {
-      showToast('Pop-up blocked — please allow pop-ups for this site');
-      return;
-    }
+var sections = document.querySelectorAll('#main-page section[id]');
+var navLinks = document.querySelectorAll('#nav .nav-link');
+window.addEventListener('scroll', function() {
+  var cur = '';
+  for (var i = 0; i < sections.length; i++) { if (window.scrollY >= sections[i].offsetTop - 120) cur = sections[i].id; }
+  for (var j = 0; j < navLinks.length; j++) { navLinks[j].classList.toggle('active', navLinks[j].getAttribute('href') === '#' + cur); }
+});
 
-    newTab.document.open();
-    newTab.document.write(html);
-    newTab.document.close();
+function showToast(msg, dur) {
+  var t = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, dur || 3500);
+}
 
-    showToast('ATS resume opened — preview and save as PDF');
-  });
+document.getElementById('ats-btn').addEventListener('click', function() {
+  var tmpl = document.getElementById('ats-template');
+  var html = tmpl.textContent || tmpl.innerText;
+  var w = window.open('', '_blank');
+  if (!w) { showToast('Pop-up blocked — please allow pop-ups for this site'); return; }
+  w.document.open(); w.document.write(html); w.document.close();
+  showToast('ATS resume opened — preview and save as PDF');
+});
 </script>
 </body>
 </html>
